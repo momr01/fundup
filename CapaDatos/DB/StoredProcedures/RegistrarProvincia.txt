@@ -1,0 +1,7 @@
+CREATE PROCEDURE [dbo].[RegistrarProvincia]
+	--parametros
+	@nombre_provincia varchar(100)
+AS
+BEGIN
+	INSERT INTO PROVINCIA VALUES (@nombre_provincia)
+END

@@ -1,0 +1,10 @@
+CREATE PROCEDURE [dbo].[AnularIngreso]
+@idUsuario int,
+@idDinero int
+AS
+BEGIN
+UPDATE INGRESO
+SET ESTA_ACTIVO_INGRESO = 0
+WHERE ID_INGRESO = @idDinero
+AND ID_USUARIO = @idUsuario
+END

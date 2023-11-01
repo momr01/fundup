@@ -1,0 +1,9 @@
+CREATE PROCEDURE [dbo].[RegistrarDomicilio]
+	--parametros
+	@id_localidad int,
+	@calle_domicilio varchar(200),
+	@numero_domicilio int
+AS
+BEGIN
+	INSERT INTO DOMICILIO VALUES (@id_localidad, @calle_domicilio, @numero_domicilio)
+END

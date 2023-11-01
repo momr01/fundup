@@ -1,0 +1,9 @@
+CREATE PROCEDURE [dbo].[GetProvincias]
+@id int = null
+
+AS
+BEGIN
+SET NOCOUNT ON;
+select * from PROVINCIA p
+where (p.ID_PROVINCIA = @id or @id is null)
+END

@@ -1,0 +1,15 @@
+CREATE PROCEDURE [dbo].[GraficoGastosPorFecha]
+	@idUsuario int,
+	@fechaInicial Datetime,
+	@fechaFinal Datetime
+AS
+BEGIN
+SET NOCOUNT ON;
+	SELECT CAST(FECHA_GASTO AS date) AS FECHA, SUM(IMPORTE_GASTO) AS IMPORTE
+	FROM GASTO
+	WHERE FECHA_GASTO BETWEEN @fechaInicial AND @fechaFinal
+	AND ID_USUARIO = @idUsuario
+	AND ESTA_ACTIVO_GASTO = 1
+	GROUP BY CAST(FECHA_GASTO AS date)
+	ORDER BY FECHA ASC
+END

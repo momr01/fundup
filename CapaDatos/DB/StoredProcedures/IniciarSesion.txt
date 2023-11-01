@@ -1,0 +1,12 @@
+CREATE PROCEDURE [dbo].[IniciarSesion]
+	--parametros
+	@email varchar(100),
+	@password varchar(20)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT * FROM USUARIO 
+	WHERE EMAIL_USUARIO=@email 
+	AND CONTRASENA_USUARIO=@password
+	AND ESTA_ACTIVO_USUARIO = 1
+END

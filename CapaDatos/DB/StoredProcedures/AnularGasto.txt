@@ -1,0 +1,10 @@
+CREATE PROCEDURE [dbo].[AnularGasto]
+@idUsuario int,
+@idDinero int
+AS
+BEGIN
+UPDATE GASTO
+SET ESTA_ACTIVO_GASTO = 0
+WHERE ID_GASTO = @idDinero
+AND ID_USUARIO = @idUsuario
+END

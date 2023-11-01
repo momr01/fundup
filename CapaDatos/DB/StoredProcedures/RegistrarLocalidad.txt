@@ -1,0 +1,9 @@
+CREATE PROCEDURE [dbo].[RegistrarLocalidad]
+	--parametros
+	@id_provincia int,
+	@cod_postal_localidad varchar(5),
+	@nombre_localidad varchar(100)
+AS
+BEGIN
+	INSERT INTO LOCALIDAD VALUES (@id_provincia, @cod_postal_localidad, @nombre_localidad)
+END

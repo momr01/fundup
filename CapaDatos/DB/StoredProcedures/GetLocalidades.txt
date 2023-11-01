@@ -1,0 +1,8 @@
+CREATE PROCEDURE [dbo].[GetLocalidades]
+@idProv int = null
+AS
+BEGIN
+SET NOCOUNT ON;
+select * from LOCALIDAD L
+where L.ID_PROVINCIA = @idProv or @idProv is null
+END

@@ -1,0 +1,8 @@
+CREATE PROCEDURE [dbo].[GetCategorias]
+@idCategoria int = null
+AS
+BEGIN
+SET NOCOUNT ON;
+select * from CATEGORIA
+where ID_CATEGORIA = @idCategoria or @idCategoria is null
+END
