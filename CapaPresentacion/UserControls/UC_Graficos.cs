@@ -23,82 +23,11 @@ namespace CapaPresentacion.UserControls
             _usuario = usuario;
         }
 
-        Random rand = new Random();
-
-        private void LoadChart()
-        {
-            var cnv = new Bunifu.DataViz.Canvas();
-            var dataPoint = new Bunifu.DataViz.DataPoint(Bunifu.DataViz.BunifuDataViz._type.Bunifu_splineArea);
-
-
-            dataPoint.addLabely("Jan", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Feb", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Mar", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Apr", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Jun", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Jul", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Aug", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Sep", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Oct", rand.Next(0, 500).ToString());
-
-            cnv.addData(dataPoint);
-            bunifuDataViz1.colorSet.Add(Color.Red);
-            bunifuDataViz1.Render(cnv);
-
-        }
-
-        private void LoadLine()
-        {
-            var cnv = new Bunifu.DataViz.Canvas();
-            var dataPoint = new Bunifu.DataViz.DataPoint(Bunifu.DataViz.BunifuDataViz._type.Bunifu_line);
-
-
-            dataPoint.addLabely("Jan", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Feb", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Mar", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Apr", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Jun", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Jul", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Aug", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Sep", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Oct", rand.Next(0, 500).ToString());
-
-            cnv.addData(dataPoint);
-            //bunifuDataViz1.colorSet.Add(Color.Red);
-            bunifuDataViz1.Render(cnv);
-
-        }
-
-        private void LoadPie()
-        {
-            var cnv = new Bunifu.DataViz.Canvas();
-            var dataPoint = new Bunifu.DataViz.DataPoint(Bunifu.DataViz.BunifuDataViz._type.Bunifu_pie);
-
-
-            dataPoint.addLabely("Jan", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Feb", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Mar", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Apr", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Jun", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Jul", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Aug", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Sep", rand.Next(0, 500).ToString());
-            dataPoint.addLabely("Oct", rand.Next(0, 500).ToString());
-
-            cnv.addData(dataPoint);
-            bunifuDataViz1.Render(cnv);
-
-        }
-
-        private void GraficoIngresosFechas(List<Dinero> lista)
+        private void GraficoFechas(List<Dinero> lista, string tipo)
         {
             bunifuDataViz1.Visible = true;
             var cnv = new Bunifu.DataViz.Canvas();
             var dataPoint = new Bunifu.DataViz.DataPoint(Bunifu.DataViz.BunifuDataViz._type.Bunifu_line);
-
-            //dataPoint.addxyz("Hola", "hh", "ddd");
-            //dataPoint.addxy("uno", "dos");
-            //dataPoint.addxyLabel("Hola", "hh", "ddd");
 
             lista.ForEach(item =>
             {
@@ -109,19 +38,15 @@ namespace CapaPresentacion.UserControls
 
             cnv.addData(dataPoint);
             bunifuDataViz1.Render(cnv);
-            lblTituloGrafico.Text = "Ingresos desde " + String.Format("{0:d/M/yy}", dpFecha1.Value) + " hasta " + String.Format("{0:d/M/yy}", dpFecha2.Value);
+            lblTituloGrafico.Text = tipo + " desde " + String.Format("{0:d/M/yy}", dpFecha1.Value) + " hasta " + String.Format("{0:d/M/yy}", dpFecha2.Value);
 
         }
 
-        private void GraficoIngresosCategorias(List<Dinero> lista)
+        private void GraficoCategorias(List<Dinero> lista, string tipo)
         {
             bunifuDataViz1.Visible = true;
             var cnv = new Bunifu.DataViz.Canvas();
             var dataPoint = new Bunifu.DataViz.DataPoint(Bunifu.DataViz.BunifuDataViz._type.Bunifu_pie);
-
-            //dataPoint.addxyz("Hola", "hh", "ddd");
-            //dataPoint.addxy("uno", "dos");
-            //dataPoint.addxyLabel("Hola", "hh", "ddd");
 
             lista.ForEach(item =>
             {
@@ -132,7 +57,7 @@ namespace CapaPresentacion.UserControls
 
             cnv.addData(dataPoint);
             bunifuDataViz1.Render(cnv);
-            lblTituloGrafico.Text = "Ingresos según Categorías";
+            lblTituloGrafico.Text = tipo + " según Categorías";
         }
 
         private void LimpiarCanvas()
@@ -145,32 +70,31 @@ namespace CapaPresentacion.UserControls
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //LoadChart();
-
-            //LoadLine();
-
-
-            /*List<Ingreso> lista = new List<Ingreso>();
-            lista = CN_Ingreso.GetGraficoPorFecha(DateTime.Parse("01/10/2023"), DateTime.Parse("12/10/2023"));
-            LoadLine2(lista);*/
-
-            /*List<Ingreso> lista = new List<Ingreso>();
-            lista = CN_Ingreso.GetGraficoPorCategorias();
-            LoadPie2(lista);*/
 
             if (cbFiltro1.SelectedIndex == 0 && cbFiltro2.SelectedIndex == 0)
             {
                 List<Dinero> lista = new List<Dinero>();
                 lista = CN_Dinero.GetGraficoPorCategorias(_usuario.idUsuario, 'I');
-                GraficoIngresosCategorias(lista);
+                GraficoCategorias(lista, "Ingresos");
             }
             else if (cbFiltro1.SelectedIndex == 0 && cbFiltro2.SelectedIndex == 1)
             {
                 List<Dinero> lista = new List<Dinero>();
                 lista = CN_Dinero.GetGraficoPorFecha(dpFecha1.Value, dpFecha2.Value, _usuario.idUsuario, 'I');
-                GraficoIngresosFechas(lista);
+                GraficoFechas(lista, "Ingresos");
             }
-            else
+            else if(cbFiltro1.SelectedIndex == 1 && cbFiltro2.SelectedIndex == 0)
+            {
+                List<Dinero> lista = new List<Dinero>();
+                lista = CN_Dinero.GetGraficoPorCategorias(_usuario.idUsuario, 'G');
+                GraficoCategorias(lista, "Gastos");
+
+            } else if(cbFiltro1.SelectedIndex == 1 && cbFiltro2 .SelectedIndex == 1) {
+                List<Dinero> lista = new List<Dinero>();
+                lista = CN_Dinero.GetGraficoPorFecha(dpFecha1.Value, dpFecha2.Value, _usuario.idUsuario, 'G');
+                GraficoFechas(lista, "Gastos");
+
+            } else
             {
                 MessageBox.Show("No fue posible generar un gráfico. Por favor intente con otras opciones.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 LimpiarCanvas();

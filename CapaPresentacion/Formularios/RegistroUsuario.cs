@@ -26,7 +26,14 @@ namespace CapaPresentacion.Formularios
         }
         private void RegistroUsuarioForm_Load(object sender, EventArgs e)
         {
-            CargarComboProvincias();
+            try
+            {
+                CargarComboProvincias();
+            }
+            catch
+            {
+                MessageBox.Show("Error! Intente nuevamente.");
+            }
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {

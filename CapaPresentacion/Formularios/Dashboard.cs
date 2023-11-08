@@ -126,5 +126,14 @@ namespace CapaPresentacion
             MessageBox.Show("Sesión finalizada. Vuelva pronto!", "Sesión Finalizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Dispose();
         }
+
+        private void btnGastos_Click(object sender, EventArgs e)
+        {
+            lblTitulo.Text = "Gastos";
+            slidePanel(btnGastos);
+            UC_Gastos gastos = new UC_Gastos(usuario);
+            addControls(gastos);
+
+        }
     }
 }

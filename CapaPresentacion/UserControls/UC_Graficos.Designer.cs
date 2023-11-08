@@ -113,12 +113,15 @@
             // button1
             // 
             button1.Anchor = AnchorStyles.None;
+            button1.BackColor = Color.MidnightBlue;
             button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = SystemColors.ButtonHighlight;
             button1.Location = new Point(817, 85);
             button1.Name = "button1";
             button1.Size = new Size(159, 55);
             button1.TabIndex = 3;
-            button1.UseVisualStyleBackColor = true;
+            button1.Text = "Generar Gráfico";
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // panel3

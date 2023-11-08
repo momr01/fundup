@@ -110,5 +110,29 @@ namespace CapaNegocio
             }
 
         }
+
+        public Dinero TableroCategoriasUsadas(int? idUsuario, char tipo)
+        {
+            try
+            {
+                return CD_Dinero.TableroCategoriasUsadas(idUsuario, tipo);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public Dinero TableroUltimaFecha(int? idUsuario)
+        {
+            try
+            {
+                return CD_Dinero.TableroUltimaFecha(idUsuario);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

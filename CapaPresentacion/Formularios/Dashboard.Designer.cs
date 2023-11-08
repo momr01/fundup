@@ -93,6 +93,7 @@
             btnGastos.Text = "       Gastos";
             btnGastos.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnGastos.UseVisualStyleBackColor = true;
+            btnGastos.Click += btnGastos_Click;
             // 
             // btnAboutUs
             // 

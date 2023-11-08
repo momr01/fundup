@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion.Formularios
 {
-    partial class EditarIngreso
+    partial class EditarGasto
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditarIngreso));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditarGasto));
             panel5 = new Panel();
             panel1 = new Panel();
             panel2 = new Panel();
@@ -105,9 +105,9 @@
             label1.ForeColor = Color.FromArgb(64, 64, 64);
             label1.Location = new Point(340, 38);
             label1.Name = "label1";
-            label1.Size = new Size(150, 25);
+            label1.Size = new Size(135, 25);
             label1.TabIndex = 97;
-            label1.Text = "Editar Ingreso";
+            label1.Text = "Editar Gasto";
             // 
             // label4
             // 
@@ -290,7 +290,7 @@
             btnEditar.UseVisualStyleBackColor = true;
             btnEditar.Click += btnEditar_Click;
             // 
-            // EditarIngreso
+            // EditarGasto
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.White;
@@ -313,10 +313,10 @@
             Controls.Add(panel5);
             Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "EditarIngreso";
+            Name = "EditarGasto";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form_AddWork";
-            Load += AgregarMovimiento_Load;
+            Load += EditarGasto_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)categoriaBindingSource).EndInit();
             ResumeLayout(false);

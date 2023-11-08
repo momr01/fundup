@@ -1,7 +1,5 @@
-﻿using CapaDatos;
-using CapaNegocio;
+﻿using CapaNegocio;
 using Entidades;
-using Krypton.Toolkit;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,25 +12,26 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion.Formularios
 {
-    public partial class EditarIngreso : Form
+    public partial class EditarGasto : Form
     {
         CN_Categoria CN_Categoria = new CN_Categoria();
         CN_Dinero CN_Dinero = new CN_Dinero();
 
-        int _idIngreso;
+        int _idGasto;
         int? _idUsuario;
-        public EditarIngreso(int? idUsuario, int idIngreso)
+        public EditarGasto(int? idUsuario, int idGasto)
         {
             InitializeComponent();
-            _idIngreso = idIngreso;
+            _idGasto = idGasto;
             _idUsuario = idUsuario;
         }
-        private void AgregarMovimiento_Load(object sender, EventArgs e)
+
+        private void EditarGasto_Load(object sender, EventArgs e)
         {
             try
             {
                 CargarComboCategorias();
-                MostrarDatosIngreso();
+                MostrarDatosGasto();
             }
             catch
             {
@@ -54,12 +53,12 @@ namespace CapaPresentacion.Formularios
             }
         }
 
-        private void MostrarDatosIngreso()
+        private void MostrarDatosGasto()
         {
             try
             {
-                CN_Dinero ingresos = new CN_Dinero();
-                var data = ingresos.GetDinero(_idUsuario, _idIngreso, 'I');
+                CN_Dinero gastos = new CN_Dinero();
+                var data = gastos.GetDinero(_idUsuario, _idGasto, 'G');
                 txtDescripcion.Text = data.Rows[0].Field<string>("DESCRIPCION");
                 txtImporte.Text = data.Rows[0].Field<decimal>("IMPORTE").ToString();
                 cbCategoria.SelectedValue = Convert.ToInt32(data.Rows[0].Field<int>("ID_CATEGORIA"));
@@ -110,15 +109,15 @@ namespace CapaPresentacion.Formularios
             {
                 try
                 {
-                    Dinero ingresoModificado = new Dinero();
+                    Dinero gastoModificado = new Dinero();
 
-                    ingresoModificado.IdDinero = _idIngreso;
-                    ingresoModificado.ImporteDinero = Convert.ToDouble(txtImporte.Text.Trim());
-                    ingresoModificado.DescripcionDinero = txtDescripcion.Text.Trim();
-                    ingresoModificado.FechaDinero = dpFecha.Value;
+                    gastoModificado.IdDinero = _idGasto;
+                    gastoModificado.ImporteDinero = Convert.ToDouble(txtImporte.Text.Trim());
+                    gastoModificado.DescripcionDinero = txtDescripcion.Text.Trim();
+                    gastoModificado.FechaDinero = dpFecha.Value;
 
-                    ingresoModificado.Categoria = new Categoria();
-                    ingresoModificado.Categoria.IdCategoria = (int)cbCategoria.SelectedValue;
+                    gastoModificado.Categoria = new Categoria();
+                    gastoModificado.Categoria.IdCategoria = (int)cbCategoria.SelectedValue;
 
                     DialogResult editar = MessageBox.Show("¿Confirma edición?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (editar == DialogResult.No)
@@ -126,8 +125,8 @@ namespace CapaPresentacion.Formularios
                         return;
                     }
 
-                    bool exito = CN_Dinero.EditarDinero(_idUsuario, ingresoModificado, 'I');
-                    MessageBox.Show("Se modificó el ingreso correctamente.", "Ingreso editado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    bool exito = CN_Dinero.EditarDinero(_idUsuario, gastoModificado, 'G');
+                    MessageBox.Show("Se modificó el gasto correctamente.", "Gasto editado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Dispose();
 
                 }
@@ -136,7 +135,6 @@ namespace CapaPresentacion.Formularios
                     MessageBox.Show("Ocurrió un error. Por favor inténtelo nuevamente más tarde.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
         }
     }
 }

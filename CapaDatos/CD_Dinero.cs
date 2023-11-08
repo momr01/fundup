@@ -303,5 +303,82 @@ namespace CapaDatos
 
 
         }
+
+        public Dinero TableroCategoriasUsadas(int? idUsuario, char tipo)
+        {
+            Dinero dinero = new Dinero();
+
+            if (tipo == 'I')
+                comando.CommandText = "CategoriasIngresos";
+            else if (tipo == 'G')
+                comando.CommandText = "CategoriasGastos";
+
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@idUsuario", idUsuario);
+
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                leer = comando.ExecuteReader();
+
+                if (leer.Read())
+                {
+                    dinero.ImporteDinero = Convert.ToInt32(leer["CATEGORIAS_USADAS"]);
+                }
+
+                leer.Close();
+
+                conexion.CerrarConexion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                comando.Parameters.Clear();
+            }
+            return dinero;
+
+
+        }
+
+
+        public Dinero TableroUltimaFecha(int? idUsuario)
+        {
+            Dinero dinero = new Dinero();
+
+            comando.CommandText = "UltimaFecha";
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@idUsuario", idUsuario);
+
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                leer = comando.ExecuteReader();
+
+                if (leer.Read())
+                {
+                    dinero.FechaDinero = Convert.ToDateTime(leer["ULTIMA_FECHA"]);
+                }
+
+                leer.Close();
+
+                conexion.CerrarConexion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                comando.Parameters.Clear();
+            }
+            return dinero;
+
+
+        }
     }
 }
