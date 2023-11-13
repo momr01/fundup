@@ -15,16 +15,15 @@ namespace CapaPresentacion.UserControls
 {
     public partial class UC_Dashboard : UserControl
     {
-        int idUsuario = 1;
         CN_Dinero CN_Dinero = new CN_Dinero();
         double? totalIngresos = 0;
         double? totalGastos = 0;
-        //double? categoriasIngresos = 0;
-        // double? categoriasGastos = 0;
+        int? idUsuario;
 
-        public UC_Dashboard()
+        public UC_Dashboard(int? idUsuario)
         {
             InitializeComponent();
+            this.idUsuario = idUsuario;
         }
 
         private void CargarImporteTotal(char tipo)
@@ -156,7 +155,7 @@ namespace CapaPresentacion.UserControls
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error! Intente nuevamente.");
+                MessageBox.Show("No existen datos suficientes para mostrar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
 

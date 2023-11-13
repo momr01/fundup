@@ -6,10 +6,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace CapaPresentacion.Formularios
 {
@@ -23,6 +27,9 @@ namespace CapaPresentacion.Formularios
         public RegistroUsuarioForm()
         {
             InitializeComponent();
+            dtRegistroFechaNacimiento.MaxDate = DateTime.Today;
+            dtRegistroFechaNacimiento.Value = DateTime.Today;
+
         }
         private void RegistroUsuarioForm_Load(object sender, EventArgs e)
         {
@@ -128,7 +135,52 @@ namespace CapaPresentacion.Formularios
                 return false;
             }
 
+            if(!IsValidEmail(txtRegistroEmail.Text))
+            {
+                return false;
+            }
+
             return true;
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            try
+            {
+                email = Regex.Replace(email, @"(@)(.+)$", DomainMapper,
+                                      RegexOptions.None, TimeSpan.FromMilliseconds(200));
+
+                string DomainMapper(Match match)
+                {
+                    var idn = new IdnMapping();
+
+                    string domainName = idn.GetAscii(match.Groups[2].Value);
+
+                    return match.Groups[1].Value + domainName;
+                }
+            }
+            catch (RegexMatchTimeoutException e)
+            {
+                return false;
+            }
+            catch (ArgumentException e)
+            {
+                return false;
+            }
+
+            try
+            {
+                return Regex.IsMatch(email,
+                    @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
+                    RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
+            }
         }
 
         private void CargarComboProvincias()

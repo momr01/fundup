@@ -26,8 +26,8 @@ namespace CapaPresentacion
             panelWidth = panelLeft.Width;
             Hidden = false;
             usuario = _usuario;
-            lblEmail.Text = usuario.emailUsuario.ToString();
-            lblUsuario.Text = PrimeraLetraMayuscula(usuario.nombreUsuario) + " " + PrimeraLetraMayuscula(usuario.apellidoUsuario);
+            lblEmail.Text = usuario!.emailUsuario!.ToString();
+            lblUsuario.Text = PrimeraLetraMayuscula(usuario!.nombreUsuario!) + " " + PrimeraLetraMayuscula(usuario!.apellidoUsuario!);
 
         }
 
@@ -59,7 +59,7 @@ namespace CapaPresentacion
         {
             lblTitulo.Text = "Tablero";
             slidePanel(btnTablero);
-            UC_Dashboard dashboard = new UC_Dashboard();
+            UC_Dashboard dashboard = new UC_Dashboard(usuario.idUsuario);
             addControls(dashboard);
 
         }
