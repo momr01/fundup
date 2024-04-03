@@ -33,7 +33,7 @@ namespace CapaPresentacion.Formularios
                 CargarComboCategorias();
                 MostrarDatosGasto();
             }
-            catch
+            catch 
             {
                 MessageBox.Show("Error! Intente nuevamente.");
             }
@@ -44,7 +44,7 @@ namespace CapaPresentacion.Formularios
             try
             {
                 List<Categoria> listaCategorias = new List<Categoria>();
-                listaCategorias = CN_Categoria.GetCategorias();
+                listaCategorias = CN_Categoria.GetCategorias(0);
                 cbCategoria.DataSource = listaCategorias;
             }
             catch

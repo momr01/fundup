@@ -1,0 +1,14 @@
+CREATE PROCEDURE [dbo].[ListadoIngresosPorFecha]
+	@idUsuario int,
+	@fechaInicial Datetime,
+	@fechaFinal Datetime
+AS
+BEGIN
+SET NOCOUNT ON;
+	SELECT FECHA_INGRESO AS FECHA, IMPORTE_INGRESO AS IMPORTE
+	FROM INGRESO
+	WHERE FECHA_INGRESO BETWEEN @fechaInicial AND @fechaFinal
+	AND ID_USUARIO = @idUsuario
+	AND ESTA_ACTIVO_INGRESO = 1
+	ORDER BY FECHA ASC
+END

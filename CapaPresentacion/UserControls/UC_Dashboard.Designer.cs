@@ -406,7 +406,7 @@
             label1.Name = "label1";
             label1.Size = new Size(254, 17);
             label1.TabIndex = 13;
-            label1.Text = "Copyrights © 2023. All Rights Reserved.";
+            label1.Text = "Copyrights © 2024. All Rights Reserved.";
             // 
             // UC_Dashboard
             // 

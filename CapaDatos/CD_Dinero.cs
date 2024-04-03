@@ -36,6 +36,7 @@ namespace CapaDatos
 
             leer = comando.ExecuteReader();
             tabla.Load(leer);
+
             conexion.CerrarConexion();
             return tabla;
         }
@@ -70,6 +71,9 @@ namespace CapaDatos
             {
                comando.Parameters.AddWithValue("@ID_USUARIO", i.Usuario.idUsuario);
             }
+
+            if (i.EsPlan != null)
+                comando.Parameters.AddWithValue("@ES_PLAN", i.EsPlan);
 
             try
             {
@@ -379,6 +383,41 @@ namespace CapaDatos
             return dinero;
 
 
+        }
+
+        public DataTable GetDineroPorFechas(int? idUsuario, DateTime? fechaInicial, DateTime? fechaFinal)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "ListadoDineroPorFecha";
+
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@idUsuario", idUsuario);
+            comando.Parameters.AddWithValue("@fechaInicial", fechaInicial);
+            comando.Parameters.AddWithValue("@fechaFinal", fechaFinal);
+
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+
+            conexion.CerrarConexion();
+            return tabla;
+        }
+
+
+        public DataTable GetDineroTotal(int? idUsuario)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "ListadoDineroTotal";
+
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@idUsuario", idUsuario);
+
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+
+            conexion.CerrarConexion();
+            return tabla;
         }
     }
 }

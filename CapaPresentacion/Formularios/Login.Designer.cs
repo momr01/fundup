@@ -142,6 +142,7 @@
             txtPassword.TextAlign = HorizontalAlignment.Left;
             txtPassword.TrailingIcon = null;
             txtPassword.UseSystemPasswordChar = true;
+            txtPassword.KeyDown += txtPassword_KeyDown;
             // 
             // txtEmail
             // 
@@ -173,6 +174,7 @@
             txtEmail.TextAlign = HorizontalAlignment.Left;
             txtEmail.TrailingIcon = null;
             txtEmail.UseSystemPasswordChar = false;
+            txtEmail.KeyDown += txtEmail_KeyDown;
             // 
             // btnLogin
             // 

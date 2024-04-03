@@ -40,7 +40,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void Ingresar()
         {
             if (isFormValid())
             {
@@ -74,6 +74,41 @@ namespace CapaPresentacion
             }
         }
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            Ingresar();
+            /*if (isFormValid())
+            {
+                try
+                {
+                    Usuario usuarioExistente = usuarioCN.IniciarSesion(txtEmail.Text.Trim(), txtPassword.Text.Trim());
+
+                    if (usuarioExistente.emailUsuario == null && usuarioExistente.contraseñaUsuario == null)
+                    {
+                        MessageBox.Show("Error al intentar iniciar sesión. Por favor, verifique los datos ingresados e inténtelo nuevamente más tarde.",
+                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        txtEmail.Text = "";
+                        txtPassword.Text = "";
+                        txtEmail.Focus();
+                        MessageBox.Show("Inicio de sesión exitoso.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        using (DashboardForm df = new DashboardForm(usuarioExistente))
+                        {
+                            df.ShowDialog();
+                        }
+                    }
+
+
+                }
+                catch
+                {
+                    throw;
+                }
+            }*/
+        }
+
         private void Login_Load(object sender, EventArgs e)
         {
             txtEmail.Focus();
@@ -84,6 +119,24 @@ namespace CapaPresentacion
             using (RegistroUsuarioForm ru = new RegistroUsuarioForm())
             {
                 ru.ShowDialog();
+            }
+        }
+
+
+
+        private void txtEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                Ingresar();
+            }
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                Ingresar();
             }
         }
     }

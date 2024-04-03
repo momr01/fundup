@@ -36,7 +36,7 @@ namespace CapaPresentacion.UserControls
 
                 if (tipo == 'I')
                 {
-                    if(registro?.ImporteDinero?.ToString().Length > 0)
+                    if (registro?.ImporteDinero?.ToString().Length > 0)
                     {
                         totalIngresos = registro.ImporteDinero;
                         lblTotalIngresos.Text = "$ " + String.Format("{0:n}", registro.ImporteDinero);
@@ -46,7 +46,7 @@ namespace CapaPresentacion.UserControls
                         totalIngresos = 0;
                         lblTotalIngresos.Text = "$ 0.00";
                     }
-                    
+
                 }
                 else if (tipo == 'G')
                 {
@@ -98,7 +98,7 @@ namespace CapaPresentacion.UserControls
                     }
                     else
                     {
-                        lblCategoriasGastos.Text="0";
+                        lblCategoriasGastos.Text = "0";
                     }
                 }
 

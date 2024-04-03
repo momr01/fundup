@@ -194,6 +194,7 @@ create table GASTO (
    DESCRIPCION_GASTO    varchar(200)         not null,
    FECHA_GASTO          datetime             null default getdate(),
    ESTA_ACTIVO_GASTO    bit                  null default 1,
+   ES_PLAN              bit                  null default 0,
    constraint PK_GASTO primary key nonclustered (ID_GASTO)
 )
 go
@@ -209,6 +210,7 @@ create table INGRESO (
    DESCRIPCION_INGRESO  varchar(200)         not null,
    FECHA_INGRESO        datetime             null default getdate(),
    ESTA_ACTIVO_INGRESO  bit                  null default 1,
+   ES_PLAN              bit                  null default 0,
    constraint PK_INGRESO primary key nonclustered (ID_INGRESO)
 )
 go

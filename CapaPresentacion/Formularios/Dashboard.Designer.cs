@@ -31,10 +31,17 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
             panelLeft = new Panel();
+            panelSideMovimientos = new Panel();
+            btnMovimientos = new Button();
+            panelSideCategorias = new Panel();
+            panelSideGraficos = new Panel();
+            panelSideGastos = new Panel();
+            panelSideIngresos = new Panel();
+            btnCategorias = new Button();
             btnGastos = new Button();
             btnAboutUs = new Button();
-            panelSide = new Panel();
-            btnReportes = new Button();
+            panelSideTablero = new Panel();
+            btnGraficos = new Button();
             btnIngresos = new Button();
             btnTablero = new Button();
             panel2 = new Panel();
@@ -65,10 +72,17 @@
             // 
             panelLeft.BackColor = Color.FromArgb(30, 50, 94);
             panelLeft.BorderStyle = BorderStyle.Fixed3D;
+            panelLeft.Controls.Add(panelSideMovimientos);
+            panelLeft.Controls.Add(btnMovimientos);
+            panelLeft.Controls.Add(panelSideCategorias);
+            panelLeft.Controls.Add(panelSideGraficos);
+            panelLeft.Controls.Add(panelSideGastos);
+            panelLeft.Controls.Add(panelSideIngresos);
+            panelLeft.Controls.Add(btnCategorias);
             panelLeft.Controls.Add(btnGastos);
             panelLeft.Controls.Add(btnAboutUs);
-            panelLeft.Controls.Add(panelSide);
-            panelLeft.Controls.Add(btnReportes);
+            panelLeft.Controls.Add(panelSideTablero);
+            panelLeft.Controls.Add(btnGraficos);
             panelLeft.Controls.Add(btnIngresos);
             panelLeft.Controls.Add(btnTablero);
             panelLeft.Controls.Add(panel2);
@@ -77,6 +91,85 @@
             panelLeft.Name = "panelLeft";
             panelLeft.Size = new Size(223, 720);
             panelLeft.TabIndex = 0;
+            // 
+            // panelSideMovimientos
+            // 
+            panelSideMovimientos.BackColor = Color.White;
+            panelSideMovimientos.Location = new Point(-2, 409);
+            panelSideMovimientos.Name = "panelSideMovimientos";
+            panelSideMovimientos.Size = new Size(8, 52);
+            panelSideMovimientos.TabIndex = 10;
+            panelSideMovimientos.Visible = false;
+            // 
+            // btnMovimientos
+            // 
+            btnMovimientos.FlatAppearance.BorderSize = 0;
+            btnMovimientos.FlatStyle = FlatStyle.Flat;
+            btnMovimientos.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnMovimientos.ForeColor = Color.White;
+            btnMovimientos.Image = (Image)resources.GetObject("btnMovimientos.Image");
+            btnMovimientos.ImageAlign = ContentAlignment.MiddleLeft;
+            btnMovimientos.Location = new Point(0, 408);
+            btnMovimientos.Name = "btnMovimientos";
+            btnMovimientos.Size = new Size(216, 52);
+            btnMovimientos.TabIndex = 10;
+            btnMovimientos.Text = "      Movimientos";
+            btnMovimientos.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnMovimientos.UseVisualStyleBackColor = true;
+            btnMovimientos.Click += btnMovimientos_Click;
+            // 
+            // panelSideCategorias
+            // 
+            panelSideCategorias.BackColor = Color.White;
+            panelSideCategorias.Location = new Point(-1, 358);
+            panelSideCategorias.Name = "panelSideCategorias";
+            panelSideCategorias.Size = new Size(8, 44);
+            panelSideCategorias.TabIndex = 7;
+            panelSideCategorias.Visible = false;
+            // 
+            // panelSideGraficos
+            // 
+            panelSideGraficos.BackColor = Color.White;
+            panelSideGraficos.Location = new Point(-1, 308);
+            panelSideGraficos.Name = "panelSideGraficos";
+            panelSideGraficos.Size = new Size(8, 44);
+            panelSideGraficos.TabIndex = 5;
+            panelSideGraficos.Visible = false;
+            // 
+            // panelSideGastos
+            // 
+            panelSideGastos.BackColor = Color.White;
+            panelSideGastos.Location = new Point(-1, 258);
+            panelSideGastos.Name = "panelSideGastos";
+            panelSideGastos.Size = new Size(8, 44);
+            panelSideGastos.TabIndex = 4;
+            panelSideGastos.Visible = false;
+            // 
+            // panelSideIngresos
+            // 
+            panelSideIngresos.BackColor = Color.White;
+            panelSideIngresos.Location = new Point(-1, 208);
+            panelSideIngresos.Name = "panelSideIngresos";
+            panelSideIngresos.Size = new Size(8, 44);
+            panelSideIngresos.TabIndex = 3;
+            panelSideIngresos.Visible = false;
+            // 
+            // btnCategorias
+            // 
+            btnCategorias.FlatAppearance.BorderSize = 0;
+            btnCategorias.FlatStyle = FlatStyle.Flat;
+            btnCategorias.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCategorias.ForeColor = Color.White;
+            btnCategorias.Image = (Image)resources.GetObject("btnCategorias.Image");
+            btnCategorias.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCategorias.Location = new Point(3, 358);
+            btnCategorias.Name = "btnCategorias";
+            btnCategorias.Size = new Size(216, 44);
+            btnCategorias.TabIndex = 5;
+            btnCategorias.Text = "      Categorías";
+            btnCategorias.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnCategorias.UseVisualStyleBackColor = true;
+            btnCategorias.Click += btnCategorias_Click;
             // 
             // btnGastos
             // 
@@ -108,30 +201,31 @@
             btnAboutUs.TabIndex = 1;
             btnAboutUs.UseVisualStyleBackColor = true;
             // 
-            // panelSide
+            // panelSideTablero
             // 
-            panelSide.BackColor = Color.White;
-            panelSide.Location = new Point(2, 158);
-            panelSide.Name = "panelSide";
-            panelSide.Size = new Size(8, 44);
-            panelSide.TabIndex = 2;
+            panelSideTablero.BackColor = Color.White;
+            panelSideTablero.Location = new Point(-1, 158);
+            panelSideTablero.Name = "panelSideTablero";
+            panelSideTablero.Size = new Size(8, 44);
+            panelSideTablero.TabIndex = 2;
+            panelSideTablero.Visible = false;
             // 
-            // btnReportes
+            // btnGraficos
             // 
-            btnReportes.FlatAppearance.BorderSize = 0;
-            btnReportes.FlatStyle = FlatStyle.Flat;
-            btnReportes.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnReportes.ForeColor = Color.White;
-            btnReportes.Image = (Image)resources.GetObject("btnReportes.Image");
-            btnReportes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReportes.Location = new Point(5, 308);
-            btnReportes.Name = "btnReportes";
-            btnReportes.Size = new Size(216, 44);
-            btnReportes.TabIndex = 1;
-            btnReportes.Text = "      Gráficos";
-            btnReportes.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnReportes.UseVisualStyleBackColor = true;
-            btnReportes.Click += btnReportes_Click;
+            btnGraficos.FlatAppearance.BorderSize = 0;
+            btnGraficos.FlatStyle = FlatStyle.Flat;
+            btnGraficos.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGraficos.ForeColor = Color.White;
+            btnGraficos.Image = (Image)resources.GetObject("btnGraficos.Image");
+            btnGraficos.ImageAlign = ContentAlignment.MiddleLeft;
+            btnGraficos.Location = new Point(2, 308);
+            btnGraficos.Name = "btnGraficos";
+            btnGraficos.Size = new Size(216, 44);
+            btnGraficos.TabIndex = 1;
+            btnGraficos.Text = "      Gráficos";
+            btnGraficos.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnGraficos.UseVisualStyleBackColor = true;
+            btnGraficos.Click += btnGraficos_Click;
             // 
             // btnIngresos
             // 
@@ -367,8 +461,8 @@
         private System.Windows.Forms.PictureBox pbLogoCompleto;
         private System.Windows.Forms.Button btnTablero;
         private System.Windows.Forms.Button btnSlider;
-        private System.Windows.Forms.Panel panelSide;
-        private System.Windows.Forms.Button btnReportes;
+        private System.Windows.Forms.Panel panelSideTablero;
+        private System.Windows.Forms.Button btnGraficos;
         private System.Windows.Forms.Button btnIngresos;
         private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.Label lbl2;
@@ -383,5 +477,12 @@
         private Button btnGastos;
         private System.Windows.Forms.Timer timerTime;
         private Button btnCerrarSesion;
+        private Button btnCategorias;
+        private Panel panelSideCategorias;
+        private Panel panelSideGraficos;
+        private Panel panelSideGastos;
+        private Panel panelSideIngresos;
+        private Panel panelSideMovimientos;
+        private Button btnMovimientos;
     }
 }

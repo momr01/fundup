@@ -108,7 +108,7 @@ namespace CapaPresentacion.UserControls
         private void CargarComboCategorias()
         {
             List<Categoria> listaCategorias = new List<Categoria>();
-            listaCategorias = CN_Categoria.GetCategorias();
+            listaCategorias = CN_Categoria.GetCategorias(0);
             cbCategoria.DataSource = listaCategorias;
         }
 
@@ -231,11 +231,13 @@ namespace CapaPresentacion.UserControls
             if (cbBuscar.Text == "CATEGORIA")
             {
                 (tableIngresos.DataSource as DataTable)!.DefaultView.RowFilter = TextoParaFiltrar("CATEGORIA", txtBuscar.Text);
+                lblTotalIngresos.Text = tableIngresos.Rows.Count.ToString();
 
             }
             else if (cbBuscar.Text == "DESCRIPCION")
             {
                 (tableIngresos.DataSource as DataTable)!.DefaultView.RowFilter = TextoParaFiltrar("DESCRIPCION", txtBuscar.Text);
+                lblTotalIngresos.Text = tableIngresos.Rows.Count.ToString();
             }
         }
 
@@ -254,6 +256,7 @@ namespace CapaPresentacion.UserControls
             else
             {
                 (tableIngresos.DataSource as DataTable).DefaultView.RowFilter = "";
+                lblTotalIngresos.Text = tableIngresos.Rows.Count.ToString();
             }
         }
     }

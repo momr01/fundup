@@ -44,21 +44,42 @@ namespace CapaPresentacion
             uc.BringToFront();
         }
 
+        private void cerrarTodosPanelSide()
+        {
+            panelSideTablero.Visible = false;
+            panelSideIngresos.Visible = false;
+            panelSideGastos.Visible = false;
+            panelSideGraficos.Visible = false;
+           
+            panelSideCategorias.Visible = false;
+          
+            panelSideMovimientos.Visible = false;
+           
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
-        private void slidePanel(Button btn)
+        /* private void slidePanel( Button btn)
+         {
+             panelSide.Height = btn.Height;
+             panelSide.Top = btn.Top;
+         }*/
+
+        private void slidePanel(Panel panel, Button btn)
         {
-            panelSide.Height = btn.Height;
-            panelSide.Top = btn.Top;
+            panel.Height = btn.Height;
+            panel.Top = btn.Top;
         }
 
         private void BtnDashboard_Click(object sender, EventArgs e)
         {
             lblTitulo.Text = "Tablero";
-            slidePanel(btnTablero);
+            //slidePanel(panelSideTablero, btnTablero);
+            cerrarTodosPanelSide();
+            panelSideTablero.Visible = true;
             UC_Dashboard dashboard = new UC_Dashboard(usuario.idUsuario);
             addControls(dashboard);
 
@@ -93,10 +114,12 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnReportes_Click(object sender, EventArgs e)
+        private void btnGraficos_Click(object sender, EventArgs e)
         {
             lblTitulo.Text = "Gráficos";
-            slidePanel(btnReportes);
+            //slidePanel(panelSideGraficos, btnGraficos);
+            cerrarTodosPanelSide();
+            panelSideGraficos.Visible = true;
             UC_Graficos graficos = new UC_Graficos(usuario);
             addControls(graficos);
         }
@@ -104,7 +127,9 @@ namespace CapaPresentacion
         private void btnIngresos_Click(object sender, EventArgs e)
         {
             lblTitulo.Text = "Ingresos";
-            slidePanel(btnIngresos);
+            //slidePanel(panelSideIngresos, btnIngresos);
+            cerrarTodosPanelSide();
+            panelSideIngresos.Visible = true;
             UC_Ingresos ingresos = new UC_Ingresos(usuario);
             addControls(ingresos);
         }
@@ -130,10 +155,37 @@ namespace CapaPresentacion
         private void btnGastos_Click(object sender, EventArgs e)
         {
             lblTitulo.Text = "Gastos";
-            slidePanel(btnGastos);
+            //  slidePanel(panelSideGastos, btnGastos);
+            cerrarTodosPanelSide();
+            panelSideGastos.Visible = true;
             UC_Gastos gastos = new UC_Gastos(usuario);
             addControls(gastos);
 
+        }
+
+    
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            lblTitulo.Text = "Categorías";
+            //slidePanel(panelSideCategorias, btnCategorias);
+            cerrarTodosPanelSide();
+            panelSideCategorias.Visible = true;
+            UC_Categorias categorias = new UC_Categorias(usuario);
+            addControls(categorias);
+        }
+
+    
+
+  
+
+        private void btnMovimientos_Click(object sender, EventArgs e)
+        {
+            lblTitulo.Text = "Listado de Movimientos";
+            cerrarTodosPanelSide();
+            panelSideMovimientos.Visible = true;
+            UC_Movimientos movimientos = new UC_Movimientos(usuario);
+            addControls(movimientos);
         }
     }
 }

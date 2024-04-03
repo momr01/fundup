@@ -144,19 +144,18 @@
             cbFiltro2.DropDownStyle = ComboBoxStyle.DropDownList;
             cbFiltro2.DropDownWidth = 121;
             cbFiltro2.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbFiltro2.ForeColor = Color.White;
-            cbFiltro2.FormattingEnabled = true;
+            cbFiltro2.ForeColor = Color.FromArgb(222, 0, 0, 0);
             cbFiltro2.Hint = "Seleccionar";
             cbFiltro2.IntegralHeight = false;
             cbFiltro2.ItemHeight = 43;
             cbFiltro2.Items.AddRange(new object[] { "Por Categorías", "Por Fechas" });
-            cbFiltro2.Location = new Point(3, 3);
+            cbFiltro2.Location = new Point(3, 4);
             cbFiltro2.MaxDropDownItems = 4;
             cbFiltro2.MouseState = MaterialSkin.MouseState.OUT;
             cbFiltro2.Name = "cbFiltro2";
-            cbFiltro2.Size = new Size(188, 49);
+            cbFiltro2.Size = new Size(187, 49);
             cbFiltro2.StartIndex = 0;
-            cbFiltro2.TabIndex = 5;
+            cbFiltro2.TabIndex = 0;
             cbFiltro2.SelectedIndexChanged += cbFiltro2_SelectedIndexChanged;
             // 
             // panel4

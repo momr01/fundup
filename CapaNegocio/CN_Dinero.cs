@@ -134,5 +134,19 @@ namespace CapaNegocio
                 throw;
             }
         }
+
+        public DataTable GetDineroPorFechas(int? idUsuario, DateTime? fechaInicial, DateTime? fechaFinal)
+        {
+            DataTable tabla = new DataTable();
+            tabla = CD_Dinero.GetDineroPorFechas(idUsuario, fechaInicial, fechaFinal);
+            return tabla;
+        }
+
+        public DataTable GetDineroTotal(int? idUsuario)
+        {
+            DataTable tabla = new DataTable();
+            tabla = CD_Dinero.GetDineroTotal(idUsuario);
+            return tabla;
+        }
     }
 }

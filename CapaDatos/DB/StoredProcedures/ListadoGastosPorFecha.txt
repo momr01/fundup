@@ -1,0 +1,14 @@
+CREATE PROCEDURE [dbo].[ListadoGastosPorFecha]
+	@idUsuario int,
+	@fechaInicial Datetime,
+	@fechaFinal Datetime
+AS
+BEGIN
+SET NOCOUNT ON;
+	SELECT FECHA_GASTO AS FECHA, IMPORTE_GASTO AS IMPORTE
+	FROM GASTO
+	WHERE FECHA_GASTO BETWEEN @fechaInicial AND @fechaFinal
+	AND ID_USUARIO = @idUsuario
+	AND ESTA_ACTIVO_GASTO = 1
+	ORDER BY FECHA ASC
+END

@@ -13,6 +13,7 @@ namespace Entidades
         public string? DescripcionDinero { get; set; }
         public DateTime? FechaDinero { get; set; }
         public Boolean? EstaActivoDinero { get; set; }
+        public Boolean? EsPlan { get; set; }
         public Categoria? Categoria { get; set; }
         public Usuario? Usuario { get; set; }
 

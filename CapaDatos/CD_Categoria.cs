@@ -12,13 +12,18 @@ namespace CapaDatos
     public class CD_Categoria
     {
         private CD_Conexion conexion = new CD_Conexion();
+        DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
-        public List<Categoria> GetCategorias() 
+        SqlDataReader leer;
+        public List<Categoria> GetCategorias(int? idCategoria) 
         {
             List<Categoria> listaCategorias = new List<Categoria>();
 
             comando.CommandText = "GetCategorias";
             comando.CommandType = CommandType.StoredProcedure;
+
+            if (idCategoria > 0)
+                comando.Parameters.AddWithValue("@idCategoria", idCategoria);
 
             try
             {
@@ -28,8 +33,9 @@ namespace CapaDatos
                 while (reader.Read())
                 {
                     Categoria cat = new Categoria();
-                    cat.IdCategoria = Convert.ToInt32(reader["ID_CATEGORIA"]);
-                    cat.NombreCategoria = Convert.ToString(reader["NOMBRE_CATEGORIA"]);
+                    cat.IdCategoria = Convert.ToInt32(reader["ID"]);
+                    cat.NombreCategoria = Convert.ToString(reader["NOMBRE"]);
+                    cat.DescripcionCategoria = Convert.ToString(reader["DESCRIPCION"]);
 
                     listaCategorias.Add(cat);
                 }
@@ -42,6 +48,118 @@ namespace CapaDatos
                 throw;
             }
             return listaCategorias;
+        }
+
+        public DataTable GetTablaCategorias()
+        {
+            comando.Connection = conexion.AbrirConexion();
+
+           
+                comando.CommandText = "GetCategorias";
+          
+
+            comando.CommandType = CommandType.StoredProcedure;
+
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+
+            conexion.CerrarConexion();
+            return tabla;
+        }
+
+        public int InsertCategoria(Categoria c)
+        {
+            int idMovCreado = 0;
+
+                comando.CommandText = "RegistrarCategoria";
+
+            comando.CommandType = CommandType.StoredProcedure;
+
+            if (c.NombreCategoria != null)
+                comando.Parameters.AddWithValue("@NOMBRE_CATEGORIA", c.NombreCategoria);
+
+            if (c.DescripcionCategoria != null)
+                comando.Parameters.AddWithValue("@DESCRIPCION_CATEGORIA", c.DescripcionCategoria);
+
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                idMovCreado = Convert.ToInt32(comando.ExecuteScalar());
+
+                conexion.CerrarConexion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                comando.Parameters.Clear();
+            }
+            return idMovCreado;
+        }
+
+        public bool EditarCategoria(Categoria c)
+        {
+           
+                comando.CommandText = "EditarCategoria";
+
+            comando.CommandType = CommandType.StoredProcedure;
+
+            if (c.IdCategoria != null)
+                comando.Parameters.AddWithValue("@ID_CATEGORIA", c.IdCategoria);
+
+            if (c.NombreCategoria != null)
+                comando.Parameters.AddWithValue("@NOMBRE_CATEGORIA", c.NombreCategoria);
+
+            if (c.DescripcionCategoria != null)
+                comando.Parameters.AddWithValue("@DESCRIPCION_CATEGORIA", c.DescripcionCategoria);
+
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.ExecuteNonQuery();
+
+                conexion.CerrarConexion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                comando.Parameters.Clear();
+            }
+            return true;
+
+        }
+
+        public bool AnularCategoria(int? idCategoria)
+        {
+                comando.CommandText = "AnularCategoria";
+
+            comando.CommandType = CommandType.StoredProcedure;
+
+            if(idCategoria != null)
+                comando.Parameters.AddWithValue("@idCategoria", idCategoria);
+
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.ExecuteNonQuery();
+
+                conexion.CerrarConexion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                comando.Parameters.Clear();
+            }
+            return true;
+
         }
     }
 }

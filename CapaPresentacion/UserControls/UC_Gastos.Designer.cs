@@ -78,7 +78,7 @@
             label6.Name = "label6";
             label6.Size = new Size(250, 17);
             label6.TabIndex = 2;
-            label6.Text = "Copyrights © 2023. All rights Reserved.";
+            label6.Text = "Copyrights © 2024. All rights Reserved.";
             // 
             // panel8
             // 
