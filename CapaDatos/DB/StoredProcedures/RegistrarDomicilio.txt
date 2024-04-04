@@ -7,3 +7,5 @@ AS
 BEGIN
 	INSERT INTO DOMICILIO VALUES (@id_localidad, @calle_domicilio, @numero_domicilio)
 END
+
+

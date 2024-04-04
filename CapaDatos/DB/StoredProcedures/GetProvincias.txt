@@ -7,3 +7,4 @@ SET NOCOUNT ON;
 select * from PROVINCIA p
 where (p.ID_PROVINCIA = @id or @id is null)
 END
+

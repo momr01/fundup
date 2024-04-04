@@ -7,3 +7,4 @@ AS
 BEGIN
 	INSERT INTO LOCALIDAD VALUES (@id_provincia, @cod_postal_localidad, @nombre_localidad)
 END
+

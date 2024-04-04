@@ -8,3 +8,4 @@ from CATEGORIA
 where ID_CATEGORIA = @idCategoria or @idCategoria is null
 AND ESTA_ACTIVA_CATEGORIA = 1
 END
+

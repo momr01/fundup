@@ -76,7 +76,7 @@ namespace CapaPresentacion.UserControls
 
         private bool FormularioValido()
         {
-            if (txtDescripcion.Text.Length == 0 || txtImporte.Text.Length == 0)
+            if (txtDescripcion.Text.Length == 0 || txtImporte.Text.Length == 0 || cbCategoria.SelectedValue == null)
             {
 
                 return false;
@@ -134,6 +134,11 @@ namespace CapaPresentacion.UserControls
             tableGastos.Columns["ID"].Visible = false;
             tableGastos.Columns["ID_CATEGORIA"].Visible = false;
             lblTotalGastos.Text = tableGastos.Rows.Count.ToString();
+
+            if ((tableGastos.Rows.Count) > 0)
+            {
+                txtBuscar.Enabled = true;
+            }
         }
 
         private void btnAgregarGasto_Click(object sender, EventArgs e)

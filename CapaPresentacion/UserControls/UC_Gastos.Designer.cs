@@ -262,6 +262,7 @@
             // txtBuscar
             // 
             txtBuscar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            txtBuscar.Enabled = false;
             txtBuscar.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtBuscar.Location = new Point(778, 204);
             txtBuscar.Name = "txtBuscar";

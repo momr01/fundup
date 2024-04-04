@@ -120,7 +120,16 @@ namespace CapaPresentacion.UserControls
                 if (registro?.FechaDinero?.ToString().Length > 0)
                 {
                     DateTime dateTime = registro.FechaDinero.Value.Date;
-                    lblUltimaFecha.Text = dateTime.ToShortDateString();
+
+                    if(dateTime.Year < 2000)
+                    {
+                        lblUltimaFecha.Text = "--/--/---";
+                    } else
+                    {
+                        lblUltimaFecha.Text = dateTime.ToShortDateString();
+                    }
+                    
+                   
                 }
                 else
                 {
@@ -155,7 +164,7 @@ namespace CapaPresentacion.UserControls
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No existen datos suficientes para mostrar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No existen datos suficientes para mostrar. " + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
 

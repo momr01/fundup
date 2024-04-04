@@ -84,7 +84,7 @@ namespace CapaPresentacion.UserControls
 
         private bool FormularioValido()
         {
-            if (txtDescripcion.Text.Length == 0 || txtImporte.Text.Length == 0)
+            if (txtDescripcion.Text.Length == 0 || txtImporte.Text.Length == 0 || cbCategoria.SelectedValue == null)
             {
 
                 return false;
@@ -144,6 +144,11 @@ namespace CapaPresentacion.UserControls
             tableIngresos.Columns["ID"].Visible = false;
             tableIngresos.Columns["ID_CATEGORIA"].Visible = false;
             lblTotalIngresos.Text = tableIngresos.Rows.Count.ToString();
+
+            if ((tableIngresos.Rows.Count) > 0)
+            {
+                txtBuscar.Enabled = true;
+            }
         }
 
         private void btnAgregarIngreso_Click(object sender, EventArgs e)

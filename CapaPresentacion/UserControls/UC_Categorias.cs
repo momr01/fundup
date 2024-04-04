@@ -121,6 +121,11 @@ namespace CapaPresentacion.UserControls
             tableCategorias.Columns["ID"].Visible = false;
             tableCategorias.Columns["ACTIVA"].Visible = false;
             lblTotalCategorias.Text = tableCategorias.Rows.Count.ToString();
+
+            if ((tableCategorias.Rows.Count) > 0)
+            {
+                txtBuscar.Enabled = true;
+            }
         }
 
         private void btnAgregarCategoria_Click(object sender, EventArgs e)

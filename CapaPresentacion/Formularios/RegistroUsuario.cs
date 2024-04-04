@@ -135,7 +135,12 @@ namespace CapaPresentacion.Formularios
                 return false;
             }
 
-            if(!IsValidEmail(txtRegistroEmail.Text))
+            if (!IsValidEmail(txtRegistroEmail.Text))
+            {
+                return false;
+            }
+
+            if (cboRegistroLocalidad.SelectedValue == null)
             {
                 return false;
             }
@@ -190,6 +195,10 @@ namespace CapaPresentacion.Formularios
             List<Provincia> listaProv = new List<Provincia>();
             listaProv = CN_Provincias.GetProvincias(provinciaCombo);
             provinciaBindingSource.DataSource = listaProv;
+
+           
+
+
 
 
         }

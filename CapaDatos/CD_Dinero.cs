@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -365,7 +366,15 @@ namespace CapaDatos
 
                 if (leer.Read())
                 {
-                    dinero.FechaDinero = Convert.ToDateTime(leer["ULTIMA_FECHA"]);
+                    Debug.WriteLine(leer["ULTIMA_FECHA"]);
+                    if (leer["ULTIMA_FECHA"] !=null)
+                    {
+                        dinero.FechaDinero = Convert.ToDateTime(leer["ULTIMA_FECHA"]);
+                    }
+                   
+                } else
+                {
+                    dinero.FechaDinero= null;
                 }
 
                 leer.Close();
