@@ -1,5 +1,6 @@
 CREATE PROCEDURE [dbo].[GetCategorias]
-@idCategoria int = null
+@idCategoria int = null,
+@idUsuario int
 AS
 BEGIN
 SET NOCOUNT ON;
@@ -7,5 +8,6 @@ select ID_CATEGORIA AS ID, NOMBRE_CATEGORIA AS NOMBRE, DESCRIPCION_CATEGORIA AS 
 from CATEGORIA
 where ID_CATEGORIA = @idCategoria or @idCategoria is null
 AND ESTA_ACTIVA_CATEGORIA = 1
+AND ID_USUARIO = @idUsuario
 END
 

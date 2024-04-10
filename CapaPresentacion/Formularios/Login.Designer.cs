@@ -54,7 +54,7 @@
             lblCopyright.Name = "lblCopyright";
             lblCopyright.Size = new Size(250, 17);
             lblCopyright.TabIndex = 5;
-            lblCopyright.Text = "Copyrights © 2023. All Rights Reserved";
+            lblCopyright.Text = "Copyrights © 2024. All Rights Reserved";
             // 
             // button1
             // 

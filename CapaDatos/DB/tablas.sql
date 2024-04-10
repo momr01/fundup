@@ -163,6 +163,7 @@ go
 /*==============================================================*/
 create table CATEGORIA (
    ID_CATEGORIA         int                  identity,
+   ID_USUARIO           int                  not null,
    NOMBRE_CATEGORIA     varchar(100)         not null,
    DESCRIPCION_CATEGORIA varchar(200)         not null,
    FCREACION_CATEGORIA  datetime             null default getdate(),
@@ -239,6 +240,7 @@ create table "PLAN" (
    FECHA_FIN_PLAN       datetime             not null,
    CAPITAL_OBJETIVO_PLAN decimal(10,2)        not null,
    ESTA_ACTIVO_PLAN     bit                  null default 1,
+   ESTA_COMPLETO_PLAN   bit                  null default 0,
    constraint PK_PLAN primary key nonclustered (ID_PLAN)
 )
 go
@@ -273,6 +275,20 @@ create table PROVINCIA (
 )
 go
 
+
+/*==============================================================*/
+/* Table: TIPO_USUARIO                                          */
+/*==============================================================*/
+create table TIPO_USUARIO (
+   ID_TIPO_USUARIO         int                  identity,
+   NOMBRE_TIPO_USUARIO     varchar(100)         not null,
+   DESCRIPCION_TIPO_USUARIO     varchar(200)    not null,
+   FCREACION_TIPO_USUARIO    datetime           null default getdate(),
+   ESTA_ACTIVO_TIPO_USUARIO  bit                  null default 1,
+   constraint PK_TIPO_USUARIO primary key nonclustered (ID_TIPO_USUARIO)
+)
+go
+
 /*==============================================================*/
 /* Table: USUARIO                                               */
 /*==============================================================*/
@@ -287,8 +303,14 @@ create table USUARIO (
    CONTRASENA_USUARIO   varchar(20)          not null,
    ESTA_ACTIVO_USUARIO  bit                  null default 1,
    FCREACION_USUARIO    datetime             null default getdate(),
+   ID_TIPO_USUARIO      int                  not null,
    constraint PK_USUARIO primary key nonclustered (ID_USUARIO)
 )
+go
+
+alter table CATEGORIA
+   add constraint FK_CATEGORIA_USUARIO_USUARIO foreign key (ID_USUARIO)
+      references USUARIO (ID_USUARIO)
 go
 
 alter table DOMICILIO
@@ -344,6 +366,11 @@ go
 alter table PLAN_INGRESO
    add constraint FK_PLAN_ING_PLAN_INGR_INGRESO foreign key (ID_INGRESO)
       references INGRESO (ID_INGRESO)
+go
+
+alter table USUARIO
+   add constraint FK_USUARIO_TIPO_USUARIO_TIPO foreign key (ID_TIPO_USUARIO)
+      references TIPO_USUARIO (ID_TIPO_USUARIO)
 go
 
 alter table USUARIO

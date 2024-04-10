@@ -116,7 +116,7 @@ namespace CapaPresentacion.UserControls
         private void MostrarCategorias()
         {
             CN_Categoria categorias = new CN_Categoria();
-            tableCategorias.DataSource = categorias.GetTablaCategorias();
+            tableCategorias.DataSource = categorias.GetTablaCategorias(_usuario.idUsuario);
             //tableCategorias.Columns["ID"].Visible = false;
             tableCategorias.Columns["ID"].Visible = false;
             tableCategorias.Columns["ACTIVA"].Visible = false;
@@ -177,7 +177,7 @@ namespace CapaPresentacion.UserControls
                         return;
                     }
 
-                    bool anulacion = CN_Categoria.AnularCategoria(idCategoria);
+                    bool anulacion = CN_Categoria.AnularCategoria(idCategoria, _usuario.idUsuario);
                     MessageBox.Show("Se eliminó la categoría.", "Categoría eliminada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MostrarCategorias();
 

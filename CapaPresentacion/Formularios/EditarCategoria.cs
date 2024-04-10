@@ -50,7 +50,7 @@ namespace CapaPresentacion.Formularios
             try
             {
                 CN_Categoria categoria = new CN_Categoria();
-                var data = categoria.GetCategorias(_idCategoria);
+                var data = categoria.GetCategorias(_idCategoria, _idUsuario);
 
                 txtNombre.Text = data[0].NombreCategoria;
                 txtDescripcion.Text = data[0].DescripcionCategoria;

@@ -12,12 +12,12 @@ namespace CapaNegocio
     public class CN_Categoria
     {
         CD_Categoria CD_Categoria = new CD_Categoria();
-        public List<Categoria> GetCategorias(int? idCategoria)
+        public List<Categoria> GetCategorias(int? idCategoria, int? idUsuario)
         {
             try
             {
                 List<Categoria> listaCategorias = new List<Categoria>();
-                listaCategorias = CD_Categoria.GetCategorias(idCategoria);
+                listaCategorias = CD_Categoria.GetCategorias(idCategoria, idUsuario);
                 return listaCategorias;
             }
             catch (Exception)
@@ -26,10 +26,10 @@ namespace CapaNegocio
             }
         }
 
-        public DataTable GetTablaCategorias()
+        public DataTable GetTablaCategorias(int? idUsuario)
         {
             DataTable tabla = new DataTable();
-            tabla = CD_Categoria.GetTablaCategorias();
+            tabla = CD_Categoria.GetTablaCategorias(idUsuario);
             return tabla;
         }
         public int InsertCategoria(Categoria categoria)
@@ -59,14 +59,14 @@ namespace CapaNegocio
             }
         }
 
-        public bool AnularCategoria(int? idCategoria)
+        public bool AnularCategoria(int? idCategoria, int? idUsuario)
         {
             if (idCategoria == null)
                 return false;
 
             try
             {
-                return CD_Categoria.AnularCategoria(idCategoria);
+                return CD_Categoria.AnularCategoria(idCategoria, idUsuario);
             }
             catch (Exception)
             {

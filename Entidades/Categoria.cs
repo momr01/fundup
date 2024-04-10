@@ -13,5 +13,6 @@ namespace Entidades
         public string? DescripcionCategoria { get; set; }
         public DateTime? FCreacionCategoria { get; set; }
         public Boolean? EstaActivaCategoria { get; set;}
+        public Usuario? Usuario { get; set; }
     }
 }

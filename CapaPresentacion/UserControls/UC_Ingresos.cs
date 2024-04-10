@@ -108,7 +108,7 @@ namespace CapaPresentacion.UserControls
         private void CargarComboCategorias()
         {
             List<Categoria> listaCategorias = new List<Categoria>();
-            listaCategorias = CN_Categoria.GetCategorias(0);
+            listaCategorias = CN_Categoria.GetCategorias(0, _usuario.idUsuario);
             cbCategoria.DataSource = listaCategorias;
         }
 

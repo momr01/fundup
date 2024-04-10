@@ -1,9 +1,11 @@
 CREATE PROCEDURE [dbo].[AnularCategoria]
-@idCategoria int
+@idCategoria int,
+@idUsuario int
 AS
 BEGIN
 UPDATE CATEGORIA
 SET ESTA_ACTIVA_CATEGORIA = 0
 WHERE ID_CATEGORIA = @idCategoria
+AND ID_USUARIO = @idUsuario
 END
 

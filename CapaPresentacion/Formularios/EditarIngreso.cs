@@ -45,7 +45,7 @@ namespace CapaPresentacion.Formularios
             try
             {
                 List<Categoria> listaCategorias = new List<Categoria>();
-                listaCategorias = CN_Categoria.GetCategorias(0);
+                listaCategorias = CN_Categoria.GetCategorias(0, _idUsuario);
                 cbCategoria.DataSource = listaCategorias;
             }
             catch

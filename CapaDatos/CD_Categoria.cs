@@ -15,12 +15,14 @@ namespace CapaDatos
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
         SqlDataReader leer;
-        public List<Categoria> GetCategorias(int? idCategoria) 
+        public List<Categoria> GetCategorias(int? idCategoria, int? idUsuario) 
         {
             List<Categoria> listaCategorias = new List<Categoria>();
 
             comando.CommandText = "GetCategorias";
             comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@idUsuario", idUsuario);
 
             if (idCategoria > 0)
                 comando.Parameters.AddWithValue("@idCategoria", idCategoria);
@@ -50,7 +52,7 @@ namespace CapaDatos
             return listaCategorias;
         }
 
-        public DataTable GetTablaCategorias()
+        public DataTable GetTablaCategorias(int? idUsuario)
         {
             comando.Connection = conexion.AbrirConexion();
 
@@ -59,6 +61,7 @@ namespace CapaDatos
           
 
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@idUsuario", idUsuario);
 
             leer = comando.ExecuteReader();
             tabla.Load(leer);
@@ -74,6 +77,8 @@ namespace CapaDatos
                 comando.CommandText = "RegistrarCategoria";
 
             comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@ID_USUARIO", c.Usuario!.idUsuario);
 
             if (c.NombreCategoria != null)
                 comando.Parameters.AddWithValue("@NOMBRE_CATEGORIA", c.NombreCategoria);
@@ -106,6 +111,8 @@ namespace CapaDatos
 
             comando.CommandType = CommandType.StoredProcedure;
 
+            comando.Parameters.AddWithValue("@ID_USUARIO", c.Usuario!.idUsuario);
+
             if (c.IdCategoria != null)
                 comando.Parameters.AddWithValue("@ID_CATEGORIA", c.IdCategoria);
 
@@ -134,7 +141,7 @@ namespace CapaDatos
 
         }
 
-        public bool AnularCategoria(int? idCategoria)
+        public bool AnularCategoria(int? idCategoria, int? idUsuario)
         {
                 comando.CommandText = "AnularCategoria";
 
@@ -142,6 +149,8 @@ namespace CapaDatos
 
             if(idCategoria != null)
                 comando.Parameters.AddWithValue("@idCategoria", idCategoria);
+
+            comando.Parameters.AddWithValue("@idUsuario", idUsuario);
 
             try
             {
