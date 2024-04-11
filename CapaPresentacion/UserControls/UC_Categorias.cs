@@ -144,6 +144,8 @@ namespace CapaPresentacion.UserControls
                     nuevaCat.DescripcionCategoria = txtDescripcion.Text.Trim();
                     nuevaCat.EstaActivaCategoria = true;
 
+                    nuevaCat.Usuario = new Usuario();
+                    nuevaCat.Usuario.idUsuario = Convert.ToInt32(_usuario.idUsuario);
 
 
                     DialogResult registrar = MessageBox.Show("¿Confirma registrar?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

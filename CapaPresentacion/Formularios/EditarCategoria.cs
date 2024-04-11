@@ -1,4 +1,5 @@
-﻿using CapaNegocio;
+﻿using CapaDatos;
+using CapaNegocio;
 using Entidades;
 using System;
 using System.Collections.Generic;
@@ -89,15 +90,18 @@ namespace CapaPresentacion.Formularios
                     catModificada.NombreCategoria = txtNombre.Text;
                     catModificada.DescripcionCategoria = txtDescripcion.Text;
 
-                   /* Dinero gastoModificado = new Dinero();
+                    catModificada.Usuario = new Usuario();
+                    catModificada.Usuario.idUsuario = Convert.ToInt32(_idUsuario);
 
-                    gastoModificado.IdDinero = _idGasto;
-                    gastoModificado.ImporteDinero = Convert.ToDouble(txtImporte.Text.Trim());
-                    gastoModificado.DescripcionDinero = txtDescripcion.Text.Trim();
-                    gastoModificado.FechaDinero = dpFecha.Value;
+                    /* Dinero gastoModificado = new Dinero();
 
-                    gastoModificado.Categoria = new Categoria();
-                    gastoModificado.Categoria.IdCategoria = (int)cbCategoria.SelectedValue;*/
+                     gastoModificado.IdDinero = _idGasto;
+                     gastoModificado.ImporteDinero = Convert.ToDouble(txtImporte.Text.Trim());
+                     gastoModificado.DescripcionDinero = txtDescripcion.Text.Trim();
+                     gastoModificado.FechaDinero = dpFecha.Value;
+
+                     gastoModificado.Categoria = new Categoria();
+                     gastoModificado.Categoria.IdCategoria = (int)cbCategoria.SelectedValue;*/
 
                     DialogResult editar = MessageBox.Show("¿Confirma edición?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (editar == DialogResult.No)
