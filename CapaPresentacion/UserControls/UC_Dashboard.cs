@@ -10,12 +10,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static QuestPDF.Helpers.Colors;
 
 namespace CapaPresentacion.UserControls
 {
     public partial class UC_Dashboard : UserControl
     {
         CN_Dinero CN_Dinero = new CN_Dinero();
+        CN_Plan CN_Plan = new CN_Plan();
         double? totalIngresos = 0;
         double? totalGastos = 0;
         int? idUsuario;
@@ -150,6 +152,19 @@ namespace CapaPresentacion.UserControls
             lblResultado.Text = "$ " + String.Format("{0:n}", resultado);
         }
 
+
+        private void CargarPlanesActivos()
+        {
+            try
+            {
+                lblPlanes.Text = CN_Plan.GetTotalPlanesPendientes(idUsuario).ToString();
+            }
+            catch
+            {
+                lblPlanes.Text = "0";
+            }
+        }
+
         private void UC_Dashboard_Load(object sender, EventArgs e)
         {
             try
@@ -160,6 +175,7 @@ namespace CapaPresentacion.UserControls
                 CargarCategoriasUsadas('I');
                 CargarCategoriasUsadas('G');
                 CargarResultado();
+                CargarPlanesActivos();
 
             }
             catch (Exception ex)

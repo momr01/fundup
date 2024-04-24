@@ -1,4 +1,5 @@
 ﻿using CapaNegocio;
+using CapaPresentacion.Formularios;
 using CapaPresentacion.UserControls;
 using Entidades;
 using System;
@@ -18,6 +19,7 @@ namespace CapaPresentacion
         int panelWidth;
         bool Hidden;
         Usuario usuario;
+        CN_Plan CN_Plan = new CN_Plan();
 
         public DashboardForm(Usuario _usuario)
         {
@@ -30,6 +32,39 @@ namespace CapaPresentacion
             lblUsuario.Text = PrimeraLetraMayuscula(usuario!.nombreUsuario!) + " " + PrimeraLetraMayuscula(usuario!.apellidoUsuario!);
 
         }
+
+        private int GetTotalPlanesPendientes()
+        {
+            int total = 0;
+            try
+            {
+                total = CN_Plan.GetTotalPlanesPendientes(usuario.idUsuario);
+            } catch
+            {
+                total = 0;
+            }
+
+            return total;
+        }
+
+        private void DashboardForm_Load(object sender, EventArgs e)
+        {
+
+            /*if(GetTotalPlanesPendientes()>0)
+            {
+                using (AlertaToast at = new AlertaToast(GetTotalPlanesPendientes()))
+                {
+                    at.ShowDialog();
+                }
+            }*/
+           
+        }
+
+        private void MyTimer_Tick(object sender, EventArgs e)
+        {
+            MessageBox.Show("The form will now be closed.", "Time Elapsed");
+        }
+
 
         private string PrimeraLetraMayuscula(string palabra)
         {
@@ -50,23 +85,16 @@ namespace CapaPresentacion
             panelSideIngresos.Visible = false;
             panelSideGastos.Visible = false;
             panelSideGraficos.Visible = false;
-           
             panelSideCategorias.Visible = false;
-          
             panelSideMovimientos.Visible = false;
-           
+            panelSidePlanes.Visible = false;
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
-
-        /* private void slidePanel( Button btn)
-         {
-             panelSide.Height = btn.Height;
-             panelSide.Top = btn.Top;
-         }*/
 
         private void slidePanel(Panel panel, Button btn)
         {
@@ -77,7 +105,6 @@ namespace CapaPresentacion
         private void BtnDashboard_Click(object sender, EventArgs e)
         {
             lblTitulo.Text = "Tablero";
-            //slidePanel(panelSideTablero, btnTablero);
             cerrarTodosPanelSide();
             panelSideTablero.Visible = true;
             UC_Dashboard dashboard = new UC_Dashboard(usuario.idUsuario);
@@ -92,6 +119,7 @@ namespace CapaPresentacion
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
+            
             if (Hidden)
             {
                 panelLeft.Width = panelLeft.Width + 10;
@@ -117,7 +145,6 @@ namespace CapaPresentacion
         private void btnGraficos_Click(object sender, EventArgs e)
         {
             lblTitulo.Text = "Gráficos";
-            //slidePanel(panelSideGraficos, btnGraficos);
             cerrarTodosPanelSide();
             panelSideGraficos.Visible = true;
             UC_Graficos graficos = new UC_Graficos(usuario);
@@ -127,7 +154,6 @@ namespace CapaPresentacion
         private void btnIngresos_Click(object sender, EventArgs e)
         {
             lblTitulo.Text = "Ingresos";
-            //slidePanel(panelSideIngresos, btnIngresos);
             cerrarTodosPanelSide();
             panelSideIngresos.Visible = true;
             UC_Ingresos ingresos = new UC_Ingresos(usuario);
@@ -137,8 +163,8 @@ namespace CapaPresentacion
         private void timerTime_Tick(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
-            //lblHora.Text = dt.ToString("HH:MM:ss");
             lblHora.Text = dt.ToString();
+          
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -155,7 +181,6 @@ namespace CapaPresentacion
         private void btnGastos_Click(object sender, EventArgs e)
         {
             lblTitulo.Text = "Gastos";
-            //  slidePanel(panelSideGastos, btnGastos);
             cerrarTodosPanelSide();
             panelSideGastos.Visible = true;
             UC_Gastos gastos = new UC_Gastos(usuario);
@@ -163,21 +188,20 @@ namespace CapaPresentacion
 
         }
 
-    
+
 
         private void btnCategorias_Click(object sender, EventArgs e)
         {
             lblTitulo.Text = "Categorías";
-            //slidePanel(panelSideCategorias, btnCategorias);
             cerrarTodosPanelSide();
             panelSideCategorias.Visible = true;
             UC_Categorias categorias = new UC_Categorias(usuario);
             addControls(categorias);
         }
 
-    
 
-  
+
+
 
         private void btnMovimientos_Click(object sender, EventArgs e)
         {
@@ -186,6 +210,21 @@ namespace CapaPresentacion
             panelSideMovimientos.Visible = true;
             UC_Movimientos movimientos = new UC_Movimientos(usuario);
             addControls(movimientos);
+        }
+
+        private void btnPlanes_Click(object sender, EventArgs e)
+        {
+            lblTitulo.Text = "Planes de Inversión";
+            cerrarTodosPanelSide();
+            panelSidePlanes.Visible = true;
+            UC_PlanInversion planes = new UC_PlanInversion(usuario);
+            addControls(planes);
+        }
+
+        private void btnAboutUs_Click(object sender, EventArgs e)
+        {
+           // AlertaToast alerta = new AlertaToast(GetTotalPlanesPendientes());
+           // alerta.Show();
         }
     }
 }

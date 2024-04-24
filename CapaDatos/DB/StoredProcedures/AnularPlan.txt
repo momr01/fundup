@@ -1,0 +1,11 @@
+CREATE PROCEDURE [dbo].[AnularPlan]
+@idUsuario int,
+@idPlan int
+AS
+BEGIN
+UPDATE PLAN
+SET ESTA_ACTIVO_PLAN = 0
+WHERE ID_PLAN = @idPlan
+AND ID_USUARIO = @idUsuario
+END
+

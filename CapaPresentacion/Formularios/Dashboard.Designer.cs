@@ -31,6 +31,8 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
             panelLeft = new Panel();
+            panelSidePlanes = new Panel();
+            btnPlanes = new Button();
             panelSideMovimientos = new Panel();
             btnMovimientos = new Button();
             panelSideCategorias = new Panel();
@@ -72,6 +74,8 @@
             // 
             panelLeft.BackColor = Color.FromArgb(30, 50, 94);
             panelLeft.BorderStyle = BorderStyle.Fixed3D;
+            panelLeft.Controls.Add(panelSidePlanes);
+            panelLeft.Controls.Add(btnPlanes);
             panelLeft.Controls.Add(panelSideMovimientos);
             panelLeft.Controls.Add(btnMovimientos);
             panelLeft.Controls.Add(panelSideCategorias);
@@ -91,6 +95,32 @@
             panelLeft.Name = "panelLeft";
             panelLeft.Size = new Size(223, 720);
             panelLeft.TabIndex = 0;
+            // 
+            // panelSidePlanes
+            // 
+            panelSidePlanes.BackColor = Color.White;
+            panelSidePlanes.Location = new Point(-1, 466);
+            panelSidePlanes.Name = "panelSidePlanes";
+            panelSidePlanes.Size = new Size(8, 52);
+            panelSidePlanes.TabIndex = 12;
+            panelSidePlanes.Visible = false;
+            // 
+            // btnPlanes
+            // 
+            btnPlanes.FlatAppearance.BorderSize = 0;
+            btnPlanes.FlatStyle = FlatStyle.Flat;
+            btnPlanes.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPlanes.ForeColor = Color.White;
+            btnPlanes.Image = (Image)resources.GetObject("btnPlanes.Image");
+            btnPlanes.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPlanes.Location = new Point(3, 466);
+            btnPlanes.Name = "btnPlanes";
+            btnPlanes.Size = new Size(216, 52);
+            btnPlanes.TabIndex = 11;
+            btnPlanes.Text = "      Planes de Inversión";
+            btnPlanes.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnPlanes.UseVisualStyleBackColor = true;
+            btnPlanes.Click += btnPlanes_Click;
             // 
             // panelSideMovimientos
             // 
@@ -200,6 +230,7 @@
             btnAboutUs.Size = new Size(46, 44);
             btnAboutUs.TabIndex = 1;
             btnAboutUs.UseVisualStyleBackColor = true;
+            btnAboutUs.Click += btnAboutUs_Click;
             // 
             // panelSideTablero
             // 
@@ -441,6 +472,7 @@
             Name = "DashboardForm";
             Text = "Form_Dashboard";
             WindowState = FormWindowState.Maximized;
+            Load += DashboardForm_Load;
             panelLeft.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbLogoN).EndInit();
@@ -484,5 +516,7 @@
         private Panel panelSideIngresos;
         private Panel panelSideMovimientos;
         private Button btnMovimientos;
+        private Panel panelSidePlanes;
+        private Button btnPlanes;
     }
 }

@@ -255,7 +255,7 @@
             btnAgregarIngreso.Location = new Point(425, 186);
             btnAgregarIngreso.Name = "btnAgregarIngreso";
             btnAgregarIngreso.Size = new Size(119, 41);
-            btnAgregarIngreso.TabIndex = 2;
+            btnAgregarIngreso.TabIndex = 4;
             btnAgregarIngreso.Text = "Agregar";
             btnAgregarIngreso.UseVisualStyleBackColor = true;
             btnAgregarIngreso.Click += btnAgregarIngreso_Click;
@@ -344,7 +344,7 @@
             cbCategoria.Name = "cbCategoria";
             cbCategoria.Size = new Size(269, 49);
             cbCategoria.StartIndex = 0;
-            cbCategoria.TabIndex = 97;
+            cbCategoria.TabIndex = 2;
             cbCategoria.ValueMember = "IdCategoria";
             // 
             // categoriaBindingSource
@@ -379,7 +379,7 @@
             txtImporte.SelectionStart = 0;
             txtImporte.ShortcutsEnabled = true;
             txtImporte.Size = new Size(269, 48);
-            txtImporte.TabIndex = 98;
+            txtImporte.TabIndex = 1;
             txtImporte.TabStop = false;
             txtImporte.TextAlign = HorizontalAlignment.Left;
             txtImporte.TrailingIcon = null;
@@ -396,7 +396,7 @@
             dpFecha.Margin = new Padding(4);
             dpFecha.Name = "dpFecha";
             dpFecha.Size = new Size(269, 21);
-            dpFecha.TabIndex = 99;
+            dpFecha.TabIndex = 3;
             dpFecha.ValueNullable = new DateTime(0L);
             // 
             // UC_Ingresos

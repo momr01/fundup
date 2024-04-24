@@ -1,0 +1,11 @@
+CREATE PROCEDURE [dbo].[GetTotalPlanesPendientes]
+	@idUsuario int
+AS
+BEGIN
+SET NOCOUNT ON;
+	SELECT count(*) AS TOTAL
+	FROM [dbo].[PLAN]
+	WHERE ID_USUARIO = @idUsuario
+	AND ESTA_ACTIVO_PLAN = 1
+	AND ESTA_COMPLETO_PLAN = 0
+END

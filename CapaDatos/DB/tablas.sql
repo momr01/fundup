@@ -241,6 +241,7 @@ create table "PLAN" (
    CAPITAL_OBJETIVO_PLAN decimal(10,2)        not null,
    ESTA_ACTIVO_PLAN     bit                  null default 1,
    ESTA_COMPLETO_PLAN   bit                  null default 0,
+   FECHA_COMPLETO       datetime             null,
    constraint PK_PLAN primary key nonclustered (ID_PLAN)
 )
 go

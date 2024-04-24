@@ -143,6 +143,7 @@ namespace CapaPresentacion.UserControls
             tableIngresos.DataSource = ingresos.GetDinero(_usuario.idUsuario, null, 'I');
             tableIngresos.Columns["ID"].Visible = false;
             tableIngresos.Columns["ID_CATEGORIA"].Visible = false;
+            tableIngresos.ClearSelection();
             lblTotalIngresos.Text = tableIngresos.Rows.Count.ToString();
 
             if ((tableIngresos.Rows.Count) > 0)

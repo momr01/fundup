@@ -117,10 +117,11 @@ namespace CapaPresentacion.UserControls
         {
             CN_Categoria categorias = new CN_Categoria();
             tableCategorias.DataSource = categorias.GetTablaCategorias(_usuario.idUsuario);
-            //tableCategorias.Columns["ID"].Visible = false;
             tableCategorias.Columns["ID"].Visible = false;
             tableCategorias.Columns["ACTIVA"].Visible = false;
+           
             lblTotalCategorias.Text = tableCategorias.Rows.Count.ToString();
+            tableCategorias.ClearSelection();
 
             if ((tableCategorias.Rows.Count) > 0)
             {

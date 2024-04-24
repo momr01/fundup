@@ -133,6 +133,7 @@ namespace CapaPresentacion.UserControls
             tableGastos.DataSource = gastos.GetDinero(_usuario.idUsuario, null, 'G');
             tableGastos.Columns["ID"].Visible = false;
             tableGastos.Columns["ID_CATEGORIA"].Visible = false;
+            tableGastos.ClearSelection();
             lblTotalGastos.Text = tableGastos.Rows.Count.ToString();
 
             if ((tableGastos.Rows.Count) > 0)
