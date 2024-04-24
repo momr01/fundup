@@ -85,7 +85,7 @@ namespace CapaPresentacion.UserControls
             tablePlanesActivos.Columns["ID"].Visible = false;
             tablePlanesActivos.Columns["ESTADO"].Visible = false;
             tablePlanesActivos.Columns["FECHA COMPLETO"].Visible = false;
-          //  tablePlanesActivos.DefaultCellStyle.SelectionBackColor = tablePlanesActivos.DefaultCellStyle.BackColor;
+            //  tablePlanesActivos.DefaultCellStyle.SelectionBackColor = tablePlanesActivos.DefaultCellStyle.BackColor;
             //tablePlanesActivos.DefaultCellStyle.SelectionForeColor = tablePlanesActivos.DefaultCellStyle.ForeColor;
             tablePlanesActivos.ClearSelection();
 
@@ -110,7 +110,7 @@ namespace CapaPresentacion.UserControls
             tablePlanesFinalizados.Columns["ID"].Visible = false;
             tablePlanesFinalizados.Columns["ESTADO"].Visible = false;
             tablePlanesFinalizados.ClearSelection();
-         
+
             if (tablePlanesFinalizados.Rows.Count > 0)
             {
                 btnVerCompletos.Visible = true;

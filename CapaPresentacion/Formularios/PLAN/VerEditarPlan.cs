@@ -1,5 +1,6 @@
 ﻿using CapaDatos;
 using CapaNegocio;
+using CapaPresentacion.Formularios.PLAN;
 using Entidades;
 using System;
 using System.Collections.Generic;
@@ -24,9 +25,6 @@ namespace CapaPresentacion.Formularios
         Usuario _usuario = new Usuario();
         int idDinero = 0;
         char _type;
-        double? _porcentaje;
-        double? _faltante;
-        double? _reunido;
 
         public VerEditarPlan(int idPlan, Usuario usuario)
         {
@@ -36,9 +34,11 @@ namespace CapaPresentacion.Formularios
         }
 
         private void VerEditarPlan_Load(object sender, EventArgs e)
-        {
+        { 
+
             try
             {
+                AjustarTamanioForm();
 
                 ConsultarPlan();
                 MostrarDinero();
@@ -52,6 +52,24 @@ namespace CapaPresentacion.Formularios
             }
 
 
+        }
+
+        private void AjustarTamanioForm()
+        {
+            double width = Screen.PrimaryScreen.Bounds.Width;
+            double height = Screen.PrimaryScreen.Bounds.Height;
+
+            if (width >= 1920 && height >= 1080)
+            {
+                WindowState = FormWindowState.Normal;
+                StartPosition = FormStartPosition.CenterScreen;
+
+            }
+            else
+            {
+                WindowState = FormWindowState.Maximized;
+                StartPosition = FormStartPosition.CenterScreen;
+            }
         }
 
         private bool DineroSeleccionado()
@@ -113,19 +131,10 @@ namespace CapaPresentacion.Formularios
 
         }
 
-        private String FormatoFechaSinHora(DateTime? fecha)
-        {
-            return Convert.ToDateTime(fecha).Day.ToString() + "/" + Convert.ToDateTime(fecha).Month.ToString() + "/" + Convert.ToDateTime(fecha).Year.ToString();
-        }
-
 
         private void CargarDatos()
         {
             lblNombre.Text = _plan.NombrePlan!.ToUpper();
-            lblDescripcion.Text = _plan.DescripcionPlan;
-            lblFechaInicio.Text = FormatoFechaSinHora(_plan.FechaInicioPlan);
-            lblFechaFin.Text = FormatoFechaSinHora(_plan.FechaFinPlan);
-            lblCapital.Text = "$ " + String.Format("{0:#,##0.00}", _plan.CapitalPlan);
             lblEstado.Text = EstadoPlan();
             lblDiasFaltantes.Text = _plan.EstaCompletoPlan == false ? "Faltan " + DiasPlan() + " días." : "-";
             lblPorcentaje.Text = String.Format("{0:0.00}", PorcentajeCapital()) + "%";
@@ -137,19 +146,13 @@ namespace CapaPresentacion.Formularios
                 btnAgregarDinero.Visible = false;
                 btnEditar.Visible = false;
                 btnEliminar.Visible = false;
-                lblFechaCompleto.Visible = true;
-                txtFechaCompleto.Visible = true;
-                txtFechaCompleto.Text = FormatoFechaSinHora(_plan.FechaCompleto);
             }
             else
             {
                 btnAgregarDinero.Visible = true;
                 btnEditar.Visible = true;
                 btnEliminar.Visible = true;
-                pbInfo.Visible = true;
-                lblFechaCompleto.Visible = false;
-                txtFechaCompleto.Visible = false;
-                txtFechaCompleto.Text = "";
+                pbExtra.Visible = true;
             }
         }
 
@@ -397,6 +400,13 @@ namespace CapaPresentacion.Formularios
             }
         }
 
-
+        private void pbMasDatos_Click(object sender, EventArgs e)
+        {
+            using (VerPlanAtributos vpa = new VerPlanAtributos(_plan))
+            {
+                vpa.ShowDialog();
+                this.OnLoad(e);
+            }
+        }
     }
 }
