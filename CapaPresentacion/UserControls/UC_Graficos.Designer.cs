@@ -39,6 +39,7 @@
             dpFecha2 = new Krypton.Toolkit.KryptonDateTimePicker();
             dpFecha1 = new Krypton.Toolkit.KryptonDateTimePicker();
             lblTituloGrafico = new Label();
+            btnPDF = new Button();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
@@ -50,7 +51,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(0, 71, 160);
-            label2.Location = new Point(466, 26);
+            label2.Location = new Point(455, 10);
             label2.Name = "label2";
             label2.Size = new Size(97, 25);
             label2.TabIndex = 0;
@@ -61,7 +62,7 @@
             panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.White;
             panel1.Controls.Add(cbFiltro1);
-            panel1.Location = new Point(103, 85);
+            panel1.Location = new Point(37, 52);
             panel1.Name = "panel1";
             panel1.Size = new Size(193, 55);
             panel1.TabIndex = 1;
@@ -102,10 +103,10 @@
             bunifuDataViz1.AxisYGridColor = Color.Gray;
             bunifuDataViz1.AxisYGridThickness = new decimal(new int[] { 1, 0, 0, 0 });
             bunifuDataViz1.BackgroundImageLayout = ImageLayout.Stretch;
-            bunifuDataViz1.Location = new Point(16, 200);
+            bunifuDataViz1.Location = new Point(5, 153);
             bunifuDataViz1.Margin = new Padding(5);
             bunifuDataViz1.Name = "bunifuDataViz1";
-            bunifuDataViz1.Size = new Size(1013, 467);
+            bunifuDataViz1.Size = new Size(967, 413);
             bunifuDataViz1.TabIndex = 2;
             bunifuDataViz1.Theme = Bunifu.DataViz.BunifuDataViz._theme.theme1;
             bunifuDataViz1.Title = "";
@@ -116,9 +117,9 @@
             button1.BackColor = Color.MidnightBlue;
             button1.FlatStyle = FlatStyle.Flat;
             button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(817, 85);
+            button1.Location = new Point(696, 52);
             button1.Name = "button1";
-            button1.Size = new Size(159, 55);
+            button1.Size = new Size(114, 55);
             button1.TabIndex = 3;
             button1.Text = "Generar Gráfico";
             button1.UseVisualStyleBackColor = false;
@@ -129,7 +130,7 @@
             panel3.Anchor = AnchorStyles.None;
             panel3.BackColor = Color.White;
             panel3.Controls.Add(cbFiltro2);
-            panel3.Location = new Point(332, 85);
+            panel3.Location = new Point(257, 52);
             panel3.Name = "panel3";
             panel3.Size = new Size(193, 55);
             panel3.TabIndex = 8;
@@ -164,7 +165,7 @@
             panel4.BackColor = Color.White;
             panel4.Controls.Add(dpFecha2);
             panel4.Controls.Add(dpFecha1);
-            panel4.Location = new Point(559, 85);
+            panel4.Location = new Point(478, 52);
             panel4.Name = "panel4";
             panel4.Size = new Size(193, 55);
             panel4.TabIndex = 9;
@@ -193,15 +194,31 @@
             lblTituloGrafico.AutoSize = true;
             lblTituloGrafico.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblTituloGrafico.ForeColor = Color.FromArgb(192, 64, 0);
-            lblTituloGrafico.Location = new Point(299, 170);
+            lblTituloGrafico.Location = new Point(260, 123);
             lblTituloGrafico.Name = "lblTituloGrafico";
             lblTituloGrafico.Size = new Size(0, 25);
             lblTituloGrafico.TabIndex = 10;
+            // 
+            // btnPDF
+            // 
+            btnPDF.Anchor = AnchorStyles.None;
+            btnPDF.BackColor = Color.MediumSpringGreen;
+            btnPDF.FlatStyle = FlatStyle.Flat;
+            btnPDF.ForeColor = SystemColors.ActiveCaptionText;
+            btnPDF.Location = new Point(828, 52);
+            btnPDF.Name = "btnPDF";
+            btnPDF.Size = new Size(105, 55);
+            btnPDF.TabIndex = 11;
+            btnPDF.Text = "Descargar PDF";
+            btnPDF.UseVisualStyleBackColor = false;
+            btnPDF.Visible = false;
+            btnPDF.Click += btnPDF_Click;
             // 
             // UC_Graficos
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.White;
+            Controls.Add(btnPDF);
             Controls.Add(lblTituloGrafico);
             Controls.Add(panel4);
             Controls.Add(panel3);
@@ -211,7 +228,7 @@
             Controls.Add(label2);
             Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "UC_Graficos";
-            Size = new Size(1048, 681);
+            Size = new Size(977, 571);
             Load += UC_Graficos_Load;
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
@@ -234,5 +251,6 @@
         private Krypton.Toolkit.KryptonDateTimePicker dpFecha1;
         private Krypton.Toolkit.KryptonDateTimePicker dpFecha2;
         private Label lblTituloGrafico;
+        private Button btnPDF;
     }
 }

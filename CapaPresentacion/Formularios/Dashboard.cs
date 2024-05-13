@@ -39,7 +39,8 @@ namespace CapaPresentacion
             try
             {
                 total = CN_Plan.GetTotalPlanesPendientes(usuario.idUsuario);
-            } catch
+            }
+            catch
             {
                 total = 0;
             }
@@ -50,14 +51,14 @@ namespace CapaPresentacion
         private void DashboardForm_Load(object sender, EventArgs e)
         {
 
-            /*if(GetTotalPlanesPendientes()>0)
+            if (GetTotalPlanesPendientes() > 0)
             {
                 using (AlertaToast at = new AlertaToast(GetTotalPlanesPendientes()))
                 {
                     at.ShowDialog();
                 }
-            }*/
-           
+            }
+
         }
 
         private void MyTimer_Tick(object sender, EventArgs e)
@@ -88,6 +89,7 @@ namespace CapaPresentacion
             panelSideCategorias.Visible = false;
             panelSideMovimientos.Visible = false;
             panelSidePlanes.Visible = false;
+            panelSideReportes.Visible = false;
 
         }
 
@@ -119,7 +121,7 @@ namespace CapaPresentacion
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            
+
             if (Hidden)
             {
                 panelLeft.Width = panelLeft.Width + 10;
@@ -164,7 +166,7 @@ namespace CapaPresentacion
         {
             DateTime dt = DateTime.Now;
             lblHora.Text = dt.ToString();
-          
+
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -223,8 +225,32 @@ namespace CapaPresentacion
 
         private void btnAboutUs_Click(object sender, EventArgs e)
         {
-           // AlertaToast alerta = new AlertaToast(GetTotalPlanesPendientes());
-           // alerta.Show();
+            // AlertaToast alerta = new AlertaToast(GetTotalPlanesPendientes());
+            // alerta.Show();
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            lblTitulo.Text = "Reportes";
+            cerrarTodosPanelSide();
+            panelSideReportes.Visible = true;
+            UC_Reportes reportes = new UC_Reportes(usuario);
+            addControls(reportes);
+        }
+
+        private void btnAlertas_Click(object sender, EventArgs e)
+        {
+            if (GetTotalPlanesPendientes() > 0)
+            {
+                using (AlertaToast at = new AlertaToast(GetTotalPlanesPendientes()))
+                {
+                    at.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No existen planes pendientes de completar.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

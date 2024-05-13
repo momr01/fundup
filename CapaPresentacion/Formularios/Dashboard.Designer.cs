@@ -31,6 +31,8 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
             panelLeft = new Panel();
+            panelSideReportes = new Panel();
+            btnReportes = new Button();
             panelSidePlanes = new Panel();
             btnPlanes = new Button();
             panelSideMovimientos = new Panel();
@@ -54,6 +56,7 @@
             btnCerrarSesion = new Button();
             lblHora = new Label();
             panel4 = new Panel();
+            btnAlertas = new PictureBox();
             lbl2 = new Label();
             lblEmail = new Label();
             lblTitulo = new Label();
@@ -68,12 +71,15 @@
             ((System.ComponentModel.ISupportInitialize)pbLogoCompleto).BeginInit();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnAlertas).BeginInit();
             SuspendLayout();
             // 
             // panelLeft
             // 
             panelLeft.BackColor = Color.FromArgb(30, 50, 94);
             panelLeft.BorderStyle = BorderStyle.Fixed3D;
+            panelLeft.Controls.Add(panelSideReportes);
+            panelLeft.Controls.Add(btnReportes);
             panelLeft.Controls.Add(panelSidePlanes);
             panelLeft.Controls.Add(btnPlanes);
             panelLeft.Controls.Add(panelSideMovimientos);
@@ -95,6 +101,32 @@
             panelLeft.Name = "panelLeft";
             panelLeft.Size = new Size(223, 720);
             panelLeft.TabIndex = 0;
+            // 
+            // panelSideReportes
+            // 
+            panelSideReportes.BackColor = Color.White;
+            panelSideReportes.Location = new Point(-2, 524);
+            panelSideReportes.Name = "panelSideReportes";
+            panelSideReportes.Size = new Size(8, 52);
+            panelSideReportes.TabIndex = 13;
+            panelSideReportes.Visible = false;
+            // 
+            // btnReportes
+            // 
+            btnReportes.FlatAppearance.BorderSize = 0;
+            btnReportes.FlatStyle = FlatStyle.Flat;
+            btnReportes.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnReportes.ForeColor = Color.White;
+            btnReportes.Image = (Image)resources.GetObject("btnReportes.Image");
+            btnReportes.ImageAlign = ContentAlignment.MiddleLeft;
+            btnReportes.Location = new Point(0, 524);
+            btnReportes.Name = "btnReportes";
+            btnReportes.Size = new Size(216, 52);
+            btnReportes.TabIndex = 13;
+            btnReportes.Text = "      Reportes";
+            btnReportes.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnReportes.UseVisualStyleBackColor = true;
+            btnReportes.Click += btnReportes_Click;
             // 
             // panelSidePlanes
             // 
@@ -378,6 +410,7 @@
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(30, 50, 94);
+            panel4.Controls.Add(btnAlertas);
             panel4.Controls.Add(lbl2);
             panel4.Controls.Add(lblEmail);
             panel4.Controls.Add(lblTitulo);
@@ -388,6 +421,17 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(977, 100);
             panel4.TabIndex = 1;
+            // 
+            // btnAlertas
+            // 
+            btnAlertas.Dock = DockStyle.Right;
+            btnAlertas.Image = (Image)resources.GetObject("btnAlertas.Image");
+            btnAlertas.Location = new Point(914, 0);
+            btnAlertas.Name = "btnAlertas";
+            btnAlertas.Size = new Size(63, 100);
+            btnAlertas.TabIndex = 15;
+            btnAlertas.TabStop = false;
+            btnAlertas.Click += btnAlertas_Click;
             // 
             // lbl2
             // 
@@ -481,6 +525,7 @@
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)btnAlertas).EndInit();
             ResumeLayout(false);
         }
 
@@ -518,5 +563,8 @@
         private Button btnMovimientos;
         private Panel panelSidePlanes;
         private Button btnPlanes;
+        private Panel panelSideReportes;
+        private Button btnReportes;
+        private PictureBox btnAlertas;
     }
 }
