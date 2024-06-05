@@ -90,6 +90,7 @@ namespace CapaPresentacion
             panelSideMovimientos.Visible = false;
             panelSidePlanes.Visible = false;
             panelSideReportes.Visible = false;
+            panelSideOpciones.Visible = false;
 
         }
 
@@ -251,6 +252,15 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("No existen planes pendientes de completar.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void btnOpciones_Click(object sender, EventArgs e)
+        {
+            lblTitulo.Text = "Opciones para Invertir";
+            cerrarTodosPanelSide();
+            panelSideOpciones.Visible = true;
+            UC_Finanzas finanzas = new UC_Finanzas();
+            addControls(finanzas);
         }
     }
 }

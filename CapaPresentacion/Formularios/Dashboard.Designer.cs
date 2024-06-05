@@ -65,6 +65,8 @@
             panelContainer = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
             timerTime = new System.Windows.Forms.Timer(components);
+            btnOpciones = new Button();
+            panelSideOpciones = new Panel();
             panelLeft.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbLogoN).BeginInit();
@@ -78,6 +80,8 @@
             // 
             panelLeft.BackColor = Color.FromArgb(30, 50, 94);
             panelLeft.BorderStyle = BorderStyle.Fixed3D;
+            panelLeft.Controls.Add(panelSideOpciones);
+            panelLeft.Controls.Add(btnOpciones);
             panelLeft.Controls.Add(panelSideReportes);
             panelLeft.Controls.Add(btnReportes);
             panelLeft.Controls.Add(panelSidePlanes);
@@ -502,6 +506,32 @@
             // 
             timerTime.Tick += timerTime_Tick;
             // 
+            // btnOpciones
+            // 
+            btnOpciones.FlatAppearance.BorderSize = 0;
+            btnOpciones.FlatStyle = FlatStyle.Flat;
+            btnOpciones.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnOpciones.ForeColor = Color.White;
+            btnOpciones.Image = (Image)resources.GetObject("btnOpciones.Image");
+            btnOpciones.ImageAlign = ContentAlignment.MiddleLeft;
+            btnOpciones.Location = new Point(3, 582);
+            btnOpciones.Name = "btnOpciones";
+            btnOpciones.Size = new Size(216, 52);
+            btnOpciones.TabIndex = 14;
+            btnOpciones.Text = "      Opciones";
+            btnOpciones.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnOpciones.UseVisualStyleBackColor = true;
+            btnOpciones.Click += btnOpciones_Click;
+            // 
+            // panelSideOpciones
+            // 
+            panelSideOpciones.BackColor = Color.White;
+            panelSideOpciones.Location = new Point(-1, 582);
+            panelSideOpciones.Name = "panelSideOpciones";
+            panelSideOpciones.Size = new Size(8, 52);
+            panelSideOpciones.TabIndex = 14;
+            panelSideOpciones.Visible = false;
+            // 
             // DashboardForm
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -566,5 +596,7 @@
         private Panel panelSideReportes;
         private Button btnReportes;
         private PictureBox btnAlertas;
+        private Panel panelSideOpciones;
+        private Button btnOpciones;
     }
 }
