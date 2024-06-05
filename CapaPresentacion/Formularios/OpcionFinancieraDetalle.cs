@@ -30,27 +30,10 @@ namespace CapaPresentacion.Formularios
 
         private void OpcionFinancieraDetalle_Load(object sender, EventArgs e)
         {
-            //  listBox1.Font = new Font("Century Gothic", 20);
-            // listBox1.ItemHeight = 100;
-            /*  listBox1.Items.Add($"Nombre: {_finanza.Name}");
-
-              listBox1.Items.Add($"Monto mínimo: ${_finanza.MinAmount}");
-              listBox1.Items.Add($"Monto máximo: ${_finanza.MaxAmount}");
-              listBox1.Items.Add($"País: {_finanza.Country}");
-              listBox1.Items.Add($"Tipo de Moneda: {_finanza.CurrencyDesc}");
-              listBox1.Items.Add($"Moneda: {_finanza.CurrencySymbol}");
-              listBox1.Items.Add($"Mercados que abarca: {_finanza.Market}");
-              listBox1.Items.Add($"Tipos disponibles: {_finanza.Types}");
-              listBox1.Items.Add($"Costo inicial para invertir: ${_finanza.Costs}");
-              listBox1.Items.Add($"Perfil del Inversor: {_finanza.Profile}");
-              listBox1.Items.Add($"Riesgo asociado a la inversión: {_finanza.Risk}");
-              listBox1.Items.Add($"Rentabilidad: ${_finanza.Profitability}");*/
 
             lblNombreTitulo.Text = _finanza.Name.ToString().ToUpper();
             lblNombre.Text = _finanza.Name;
-            //lblMinimo.Text = "$" + _finanza.MinAmount;
             lblMinimo.Text = MostrarImportes(_finanza.MinAmount);
-            // lblMaximo.Text = "$" + _finanza.MaxAmount;
             lblMaximo.Text = MostrarImportes(_finanza.MaxAmount);
             lblPais.Text = _finanza.Country;
             lblMoneda.Text = $"{_finanza.CurrencyDesc} - {_finanza.CurrencySymbol}";
@@ -99,8 +82,6 @@ namespace CapaPresentacion.Formularios
         {
             this.lblUrl.LinkVisited = true;
 
-            // Navigate to a URL.
-            //System.Diagnostics.Process.Start(lblUrl.Text as String);
             var psi = new ProcessStartInfo(_finanza.Url)
             {
                 UseShellExecute = true

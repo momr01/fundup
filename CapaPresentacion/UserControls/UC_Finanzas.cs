@@ -111,24 +111,7 @@ namespace CapaPresentacion.UserControls
         {
             if (tableFinanzas.SelectedRows.Count > 0)
             {
-                //  try
-                // {
-                //   string name = tableFinanzas.CurrentRow?.Cells[1].Value.ToString();
-
-                //  Finanza finanzaSeleccionada = lista.Where(x => x.Name == name).First();
-
-
-                //  MessageBox.Show(finanzaSeleccionada.Url.ToString());
-                //  if (name == null)
-                //     return false;
-
-                // idGasto = Convert.ToInt32(id);
                 return true;
-                // }
-                // catch
-                // {
-                //     return false;
-                // }
 
             }
             else
@@ -161,26 +144,6 @@ namespace CapaPresentacion.UserControls
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-
-            /*  int totalItems = 0;
-
-              for (int u = 0; u < tableFinanzas.RowCount; u++)
-              {
-
-                  if (tableFinanzas.Rows[u].Cells[1].Value.ToString().ToLower().Contains(txtBuscar.Text.ToLower()))
-                  {
-                      tableFinanzas.Rows[u].Visible = true;
-                      totalItems++;
-                  }
-                  else
-                  {
-                      tableFinanzas.Rows[u].Visible = false;
-                  }
-
-
-              }
-
-              lblTotal.Text = totalItems.ToString();*/
 
             switch (cbBuscar.Text)
             {
@@ -226,14 +189,6 @@ namespace CapaPresentacion.UserControls
 
             lblTotal.Text = totalItems.ToString();
 
-         /*   if (OpcionSeleccionada())
-            {
-                btnMasInfo.Visible = true;
-            }
-            else
-            {
-                btnMasInfo.Visible = false;
-            }*/
         }
 
         private void cbBuscar_SelectedValueChanged(object sender, EventArgs e)
