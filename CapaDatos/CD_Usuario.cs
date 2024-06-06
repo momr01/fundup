@@ -88,6 +88,9 @@ namespace CapaDatos
             if (u.contraseñaUsuario != null)
                 comando.Parameters.AddWithValue("@CONTRASEÑA_USUARIO", u.contraseñaUsuario);
 
+            if (u.tipoUsuario != null)
+                comando.Parameters.AddWithValue("@ID_TIPO_USUARIO", u.tipoUsuario.idTipoUsuario);
+
             if (u.domicilioUsuario != null)
             {
                 Domicilio domicilioCrear = new Domicilio();

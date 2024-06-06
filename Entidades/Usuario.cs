@@ -17,6 +17,7 @@ namespace Entidades
         public string? emailUsuario { get; set; }
         public string? contraseñaUsuario { get; set; }
         public Boolean? estaActivoUsuario { get; set; }
+        public Tipo_Usuario? tipoUsuario { get; set; }
         public DateTime? fechaCreacionUsuario { get; set; }
 
 

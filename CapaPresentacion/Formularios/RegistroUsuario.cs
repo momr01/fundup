@@ -68,6 +68,10 @@ namespace CapaPresentacion.Formularios
                     usuarioCrear.contraseñaUsuario = txtRegistroContraseña.Text.Trim();
                     usuarioCrear.fechaNacimientoUsuario = dtRegistroFechaNacimiento.Value;
 
+                    Tipo_Usuario tipoUsuario = new Tipo_Usuario();
+                    tipoUsuario.idTipoUsuario = 1;
+                    usuarioCrear.tipoUsuario = tipoUsuario;
+
                     Domicilio domicilioCrear = new Domicilio();
                     domicilioCrear.calleDomicilio = txtRegistroDomicilio.Text.Trim();
                     domicilioCrear.numeroDomicilio = Convert.ToInt32(txtRegistroNroDomicilio.Text.Trim());
