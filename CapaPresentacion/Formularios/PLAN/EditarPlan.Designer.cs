@@ -49,6 +49,7 @@
             label20 = new Label();
             dpFechaInicio = new Krypton.Toolkit.KryptonDateTimePicker();
             label19 = new Label();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoriaBindingSource).BeginInit();
             SuspendLayout();
@@ -117,11 +118,11 @@
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(64, 64, 64);
-            label4.Location = new Point(88, 119);
+            label4.Location = new Point(78, 119);
             label4.Name = "label4";
-            label4.Size = new Size(72, 18);
+            label4.Size = new Size(83, 18);
             label4.TabIndex = 99;
-            label4.Text = "Nombre:";
+            label4.Text = "Nombre: *";
             // 
             // label5
             // 
@@ -129,11 +130,11 @@
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.FromArgb(64, 64, 64);
-            label5.Location = new Point(61, 185);
+            label5.Location = new Point(50, 185);
             label5.Name = "label5";
-            label5.Size = new Size(101, 18);
+            label5.Size = new Size(112, 18);
             label5.TabIndex = 101;
-            label5.Text = "Descripción:";
+            label5.Text = "Descripción: *";
             // 
             // btnCancelar
             // 
@@ -255,11 +256,11 @@
             label16.AutoSize = true;
             label16.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label16.ForeColor = Color.FromArgb(64, 64, 64);
-            label16.Location = new Point(490, 245);
+            label16.Location = new Point(481, 245);
             label16.Name = "label16";
-            label16.Size = new Size(103, 18);
+            label16.Size = new Size(114, 18);
             label16.TabIndex = 117;
-            label16.Text = "Fecha de fin:";
+            label16.Text = "Fecha de fin: *";
             // 
             // txtCapital
             // 
@@ -302,11 +303,11 @@
             label20.AutoSize = true;
             label20.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label20.ForeColor = Color.FromArgb(64, 64, 64);
-            label20.Location = new Point(34, 306);
+            label20.Location = new Point(23, 306);
             label20.Name = "label20";
-            label20.Size = new Size(130, 18);
+            label20.Size = new Size(141, 18);
             label20.TabIndex = 115;
-            label20.Text = "Capital objetivo:";
+            label20.Text = "Capital objetivo: *";
             // 
             // dpFechaInicio
             // 
@@ -327,17 +328,28 @@
             label19.AutoSize = true;
             label19.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label19.ForeColor = Color.FromArgb(64, 64, 64);
-            label19.Location = new Point(35, 245);
+            label19.Location = new Point(26, 245);
             label19.Name = "label19";
-            label19.Size = new Size(127, 18);
+            label19.Size = new Size(138, 18);
             label19.TabIndex = 113;
-            label19.Text = "Fecha de inicio:";
+            label19.Text = "Fecha de inicio: *";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(16, 449);
+            label8.Name = "label8";
+            label8.Size = new Size(153, 16);
+            label8.TabIndex = 119;
+            label8.Text = "* Campos obligatorios";
             // 
             // EditarPlan
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.White;
             ClientSize = new Size(936, 478);
+            Controls.Add(label8);
             Controls.Add(dpFechaFin);
             Controls.Add(label16);
             Controls.Add(txtCapital);
@@ -400,6 +412,7 @@
         private Label label20;
         private Krypton.Toolkit.KryptonDateTimePicker dpFechaInicio;
         private Label label19;
+        private Label label8;
         //private DragControlDemo.DragControl dragControl1;
     }
 }

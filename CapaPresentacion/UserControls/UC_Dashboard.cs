@@ -123,15 +123,16 @@ namespace CapaPresentacion.UserControls
                 {
                     DateTime dateTime = registro.FechaDinero.Value.Date;
 
-                    if(dateTime.Year < 2000)
+                    if (dateTime.Year < 2000)
                     {
                         lblUltimaFecha.Text = "--/--/---";
-                    } else
+                    }
+                    else
                     {
                         lblUltimaFecha.Text = dateTime.ToShortDateString();
                     }
-                    
-                   
+
+
                 }
                 else
                 {

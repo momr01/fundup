@@ -48,6 +48,7 @@
             label5 = new Label();
             txtDescripcion = new MaterialSkin2DotNet.Controls.MaterialTextBox2();
             categoriaBindingSource = new BindingSource(components);
+            label3 = new Label();
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tableCategorias).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoriaBindingSource).BeginInit();
@@ -221,11 +222,11 @@
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(64, 64, 64);
-            label4.Location = new Point(68, 74);
+            label4.Location = new Point(84, 74);
             label4.Name = "label4";
-            label4.Size = new Size(72, 18);
+            label4.Size = new Size(83, 18);
             label4.TabIndex = 90;
-            label4.Text = "Nombre:";
+            label4.Text = "Nombre: *";
             // 
             // label1
             // 
@@ -233,11 +234,11 @@
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(64, 64, 64);
-            label1.Location = new Point(65, 140);
+            label1.Location = new Point(56, 140);
             label1.Name = "label1";
-            label1.Size = new Size(101, 18);
+            label1.Size = new Size(112, 18);
             label1.TabIndex = 90;
-            label1.Text = "Descripción:";
+            label1.Text = "Descripción: *";
             // 
             // btnAgregarCategoria
             // 
@@ -329,10 +330,23 @@
             // 
             categoriaBindingSource.DataSource = typeof(Entidades.Categoria);
             // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.None;
+            label3.AutoSize = true;
+            label3.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.FromArgb(30, 50, 94);
+            label3.Location = new Point(765, 171);
+            label3.Name = "label3";
+            label3.Size = new Size(153, 16);
+            label3.TabIndex = 98;
+            label3.Text = "* Campos obligatorios";
+            // 
             // UC_Categorias
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.White;
+            Controls.Add(label3);
             Controls.Add(txtDescripcion);
             Controls.Add(txtBuscar);
             Controls.Add(cbBuscar);
@@ -381,5 +395,6 @@
         private System.Windows.Forms.Button btnEditarCategoria;
         private MaterialSkin2DotNet.Controls.MaterialTextBox2 txtDescripcion;
         private BindingSource categoriaBindingSource;
+        private Label label3;
     }
 }

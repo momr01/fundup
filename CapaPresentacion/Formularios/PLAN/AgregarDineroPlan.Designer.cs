@@ -49,6 +49,7 @@
             btnAgregar = new Button();
             cbTipo = new MaterialSkin2DotNet.Controls.MaterialComboBox();
             label3 = new Label();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoriaBindingSource).BeginInit();
             SuspendLayout();
@@ -117,11 +118,11 @@
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(64, 64, 64);
-            label4.Location = new Point(56, 207);
+            label4.Location = new Point(49, 207);
             label4.Name = "label4";
-            label4.Size = new Size(101, 18);
+            label4.Size = new Size(112, 18);
             label4.TabIndex = 99;
-            label4.Text = "Descripción:";
+            label4.Text = "Descripción: *";
             // 
             // label2
             // 
@@ -129,11 +130,11 @@
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(64, 64, 64);
-            label2.Location = new Point(441, 207);
+            label2.Location = new Point(435, 207);
             label2.Name = "label2";
-            label2.Size = new Size(69, 18);
+            label2.Size = new Size(80, 18);
             label2.TabIndex = 101;
-            label2.Text = "Importe:";
+            label2.Text = "Importe: *";
             // 
             // label5
             // 
@@ -141,11 +142,11 @@
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.FromArgb(64, 64, 64);
-            label5.Location = new Point(69, 299);
+            label5.Location = new Point(63, 299);
             label5.Name = "label5";
-            label5.Size = new Size(87, 18);
+            label5.Size = new Size(98, 18);
             label5.TabIndex = 101;
-            label5.Text = "Categoría:";
+            label5.Text = "Categoría: *";
             // 
             // label6
             // 
@@ -153,11 +154,11 @@
             label6.AutoSize = true;
             label6.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.FromArgb(64, 64, 64);
-            label6.Location = new Point(452, 300);
+            label6.Location = new Point(445, 300);
             label6.Name = "label6";
-            label6.Size = new Size(58, 18);
+            label6.Size = new Size(69, 18);
             label6.TabIndex = 101;
-            label6.Text = "Fecha:";
+            label6.Text = "Fecha: *";
             // 
             // btnCancelar
             // 
@@ -322,17 +323,28 @@
             label3.AutoSize = true;
             label3.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(64, 64, 64);
-            label3.Location = new Point(320, 121);
+            label3.Location = new Point(311, 121);
             label3.Name = "label3";
-            label3.Size = new Size(42, 18);
+            label3.Size = new Size(53, 18);
             label3.TabIndex = 113;
-            label3.Text = "Tipo:";
+            label3.Text = "Tipo: *";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(16, 424);
+            label8.Name = "label8";
+            label8.Size = new Size(153, 16);
+            label8.TabIndex = 115;
+            label8.Text = "* Campos obligatorios";
             // 
             // AgregarDineroPlan
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.White;
             ClientSize = new Size(826, 453);
+            Controls.Add(label8);
             Controls.Add(cbTipo);
             Controls.Add(label3);
             Controls.Add(btnAgregar);
@@ -391,6 +403,7 @@
         private Button btnAgregar;
         private MaterialSkin2DotNet.Controls.MaterialComboBox cbTipo;
         private Label label3;
+        private Label label8;
         //private DragControlDemo.DragControl dragControl1;
     }
 }

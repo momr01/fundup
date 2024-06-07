@@ -33,7 +33,7 @@ namespace CapaPresentacion.Formularios
                 CargarComboCategorias();
                 MostrarDatosGasto();
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Error! Intente nuevamente.");
             }

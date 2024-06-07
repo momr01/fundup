@@ -43,6 +43,7 @@
             txtDescripcion = new MaterialSkin2DotNet.Controls.MaterialTextBox2();
             categoriaBindingSource = new BindingSource(components);
             btnEditar = new Button();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoriaBindingSource).BeginInit();
             SuspendLayout();
@@ -111,11 +112,11 @@
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(64, 64, 64);
-            label4.Location = new Point(89, 117);
+            label4.Location = new Point(79, 117);
             label4.Name = "label4";
-            label4.Size = new Size(72, 18);
+            label4.Size = new Size(83, 18);
             label4.TabIndex = 99;
-            label4.Text = "Nombre:";
+            label4.Text = "Nombre: *";
             // 
             // label5
             // 
@@ -123,11 +124,11 @@
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.FromArgb(64, 64, 64);
-            label5.Location = new Point(60, 209);
+            label5.Location = new Point(50, 209);
             label5.Name = "label5";
-            label5.Size = new Size(101, 18);
+            label5.Size = new Size(112, 18);
             label5.TabIndex = 101;
-            label5.Text = "Descripción:";
+            label5.Text = "Descripción: *";
             // 
             // btnCancelar
             // 
@@ -230,11 +231,22 @@
             btnEditar.UseVisualStyleBackColor = true;
             btnEditar.Click += btnEditar_Click;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(16, 353);
+            label8.Name = "label8";
+            label8.Size = new Size(153, 16);
+            label8.TabIndex = 120;
+            label8.Text = "* Campos obligatorios";
+            // 
             // EditarCategoria
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.White;
             ClientSize = new Size(826, 382);
+            Controls.Add(label8);
             Controls.Add(btnEditar);
             Controls.Add(txtDescripcion);
             Controls.Add(txtNombre);
@@ -285,6 +297,7 @@
         private MaterialSkin2DotNet.Controls.MaterialTextBox2 txtDescripcion;
         private BindingSource categoriaBindingSource;
         private Button btnEditar;
+        private Label label8;
         //private DragControlDemo.DragControl dragControl1;
     }
 }

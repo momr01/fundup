@@ -119,7 +119,7 @@ namespace CapaPresentacion.UserControls
             tableCategorias.DataSource = categorias.GetTablaCategorias(_usuario.idUsuario);
             tableCategorias.Columns["ID"].Visible = false;
             tableCategorias.Columns["ACTIVA"].Visible = false;
-           
+
             lblTotalCategorias.Text = tableCategorias.Rows.Count.ToString();
             tableCategorias.ClearSelection();
 

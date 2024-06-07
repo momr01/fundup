@@ -64,7 +64,7 @@ namespace CapaPresentacion.Formularios
         {
             Double importe = Convert.ToDouble(txtImporte.Text);
 
-            if(cbTipo.SelectedIndex == 0) //Ingreso
+            if (cbTipo.SelectedIndex == 0) //Ingreso
             {
                 if (importe > _faltante)
                 {
@@ -74,7 +74,8 @@ namespace CapaPresentacion.Formularios
                 {
                     return true;
                 }
-            } else if(cbTipo.SelectedIndex == 1) //Gasto
+            }
+            else if (cbTipo.SelectedIndex == 1) //Gasto
             {
                 if (importe > _reunido)
                 {
@@ -84,11 +85,12 @@ namespace CapaPresentacion.Formularios
                 {
                     return true;
                 }
-            } else
+            }
+            else
             {
                 return false;
             }
-           
+
         }
 
         private void CargarComboCategorias()
@@ -113,10 +115,11 @@ namespace CapaPresentacion.Formularios
             {
                 MessageBox.Show("Verifique los datos ingresados.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if(!LimiteSegunSaldo())
+            else if (!LimiteSegunSaldo())
             {
                 MessageBox.Show("Por favor respete los límites al agregar un nuevo movimiento.", "Conflicto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else
+            }
+            else
             {
                 try
                 {
@@ -141,11 +144,12 @@ namespace CapaPresentacion.Formularios
 
                     // int idGastoCreado = CN_Dinero.InsertDinero(nuevoGasto, 'G');
 
-                    if(cbTipo.SelectedIndex == 0) //Ingreso
+                    if (cbTipo.SelectedIndex == 0) //Ingreso
                     {
                         //CN_Dinero.
                         CN_Plan.InsertDineroPlan(nuevoMov, 'I', _idPlan);
-                    } else //gasto
+                    }
+                    else //gasto
                     {
                         //CN_Dinero
                         CN_Plan.InsertDineroPlan(nuevoMov, 'G', _idPlan);

@@ -200,7 +200,7 @@ namespace CapaPresentacion.Formularios
             listaProv = CN_Provincias.GetProvincias(provinciaCombo);
             provinciaBindingSource.DataSource = listaProv;
 
-           
+
 
 
 

@@ -40,6 +40,7 @@
             lblRegister = new Label();
             lblPassword = new Label();
             lblEmail = new Label();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureLogo).BeginInit();
             gbLogin.SuspendLayout();
             SuspendLayout();
@@ -85,6 +86,7 @@
             // gbLogin
             // 
             gbLogin.Anchor = AnchorStyles.None;
+            gbLogin.Controls.Add(label8);
             gbLogin.Controls.Add(lblRegistrate);
             gbLogin.Controls.Add(txtPassword);
             gbLogin.Controls.Add(txtEmail);
@@ -107,7 +109,7 @@
             lblRegistrate.Cursor = Cursors.Hand;
             lblRegistrate.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             lblRegistrate.ForeColor = Color.DarkBlue;
-            lblRegistrate.Location = new Point(212, 289);
+            lblRegistrate.Location = new Point(209, 277);
             lblRegistrate.Name = "lblRegistrate";
             lblRegistrate.Size = new Size(90, 18);
             lblRegistrate.TabIndex = 16;
@@ -124,7 +126,7 @@
             txtPassword.HideSelection = true;
             txtPassword.Hint = "Ingrese su contraseña";
             txtPassword.LeadingIcon = null;
-            txtPassword.Location = new Point(29, 151);
+            txtPassword.Location = new Point(26, 139);
             txtPassword.MaxLength = 32767;
             txtPassword.MouseState = MaterialSkin.MouseState.OUT;
             txtPassword.Name = "txtPassword";
@@ -156,7 +158,7 @@
             txtEmail.HideSelection = true;
             txtEmail.Hint = "Ingrese su email";
             txtEmail.LeadingIcon = null;
-            txtEmail.Location = new Point(29, 61);
+            txtEmail.Location = new Point(26, 49);
             txtEmail.MaxLength = 32767;
             txtEmail.MouseState = MaterialSkin2DotNet.MouseState.OUT;
             txtEmail.Name = "txtEmail";
@@ -194,7 +196,7 @@
             btnLogin.IdleFillColor = Color.FromArgb(30, 50, 94);
             btnLogin.IdleForecolor = Color.White;
             btnLogin.IdleLineColor = Color.FromArgb(30, 50, 94);
-            btnLogin.Location = new Point(26, 224);
+            btnLogin.Location = new Point(23, 212);
             btnLogin.Margin = new Padding(5);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(319, 60);
@@ -208,7 +210,7 @@
             lblRegister.AutoSize = true;
             lblRegister.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             lblRegister.ForeColor = Color.FromArgb(64, 64, 64);
-            lblRegister.Location = new Point(26, 289);
+            lblRegister.Location = new Point(23, 277);
             lblRegister.Name = "lblRegister";
             lblRegister.Size = new Size(180, 18);
             lblRegister.TabIndex = 0;
@@ -220,11 +222,11 @@
             lblPassword.AutoSize = true;
             lblPassword.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblPassword.ForeColor = Color.FromArgb(64, 64, 64);
-            lblPassword.Location = new Point(26, 130);
+            lblPassword.Location = new Point(23, 118);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(97, 18);
+            lblPassword.Size = new Size(108, 18);
             lblPassword.TabIndex = 0;
-            lblPassword.Text = "Contraseña:";
+            lblPassword.Text = "Contraseña: *";
             // 
             // lblEmail
             // 
@@ -232,11 +234,21 @@
             lblEmail.AutoSize = true;
             lblEmail.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblEmail.ForeColor = Color.FromArgb(64, 64, 64);
-            lblEmail.Location = new Point(26, 40);
+            lblEmail.Location = new Point(23, 28);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(52, 18);
+            lblEmail.Size = new Size(63, 18);
             lblEmail.TabIndex = 0;
-            lblEmail.Text = "Email:";
+            lblEmail.Text = "Email: *";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(0, 308);
+            label8.Name = "label8";
+            label8.Size = new Size(153, 16);
+            label8.TabIndex = 120;
+            label8.Text = "* Campos obligatorios";
             // 
             // LoginForm
             // 
@@ -272,5 +284,6 @@
         private MaterialSkin2DotNet.Controls.MaterialTextBox2 txtEmail;
         private MaterialSkin.Controls.MaterialTextBox2 txtPassword;
         private Label lblRegistrate;
+        private Label label8;
     }
 }

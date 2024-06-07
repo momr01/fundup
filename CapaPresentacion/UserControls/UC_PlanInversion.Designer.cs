@@ -31,11 +31,12 @@ namespace CapaPresentacion.UserControls
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_PlanInversion));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             tabPage3 = new TabPage();
+            label10 = new Label();
             label8 = new Label();
             label4 = new Label();
             label2 = new Label();
@@ -93,6 +94,7 @@ namespace CapaPresentacion.UserControls
             // tabPage3
             // 
             tabPage3.BackColor = Color.White;
+            tabPage3.Controls.Add(label10);
             tabPage3.Controls.Add(label8);
             tabPage3.Controls.Add(label4);
             tabPage3.Controls.Add(label2);
@@ -116,6 +118,18 @@ namespace CapaPresentacion.UserControls
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Crear";
             // 
+            // label10
+            // 
+            label10.Anchor = AnchorStyles.None;
+            label10.AutoSize = true;
+            label10.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.ForeColor = Color.FromArgb(64, 64, 64);
+            label10.Location = new Point(24, 407);
+            label10.Name = "label10";
+            label10.Size = new Size(193, 20);
+            label10.TabIndex = 61;
+            label10.Text = "  *     Campos obligatorios";
+            // 
             // label8
             // 
             label8.Anchor = AnchorStyles.None;
@@ -124,9 +138,9 @@ namespace CapaPresentacion.UserControls
             label8.ForeColor = Color.FromArgb(64, 64, 64);
             label8.Location = new Point(24, 481);
             label8.Name = "label8";
-            label8.Size = new Size(396, 20);
+            label8.Size = new Size(404, 20);
             label8.TabIndex = 60;
-            label8.Text = "**    El capital objetivo tiene que ser mayor a 0 (cero).";
+            label8.Text = "         El capital objetivo tiene que ser mayor a 0 (cero).";
             // 
             // label4
             // 
@@ -136,9 +150,9 @@ namespace CapaPresentacion.UserControls
             label4.ForeColor = Color.FromArgb(64, 64, 64);
             label4.Location = new Point(24, 456);
             label4.Name = "label4";
-            label4.Size = new Size(508, 20);
+            label4.Size = new Size(518, 20);
             label4.TabIndex = 59;
-            label4.Text = "*     La fecha objetivo debe ser superior a la fecha de inicio del plan.";
+            label4.Text = "         La fecha objetivo debe ser superior a la fecha de inicio del plan.";
             // 
             // label2
             // 
@@ -148,9 +162,9 @@ namespace CapaPresentacion.UserControls
             label2.ForeColor = Color.FromArgb(64, 64, 64);
             label2.Location = new Point(24, 431);
             label2.Name = "label2";
-            label2.Size = new Size(255, 20);
+            label2.Size = new Size(264, 20);
             label2.TabIndex = 58;
-            label2.Text = "*     Las fechas deben ser distintas.";
+            label2.Text = "(+)    Las fechas deben ser distintas.";
             // 
             // dpFechaFin
             // 
@@ -171,11 +185,11 @@ namespace CapaPresentacion.UserControls
             label16.AutoSize = true;
             label16.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label16.ForeColor = Color.FromArgb(64, 64, 64);
-            label16.Location = new Point(531, 213);
+            label16.Location = new Point(506, 213);
             label16.Name = "label16";
-            label16.Size = new Size(133, 18);
+            label16.Size = new Size(158, 18);
             label16.TabIndex = 53;
-            label16.Text = "Fecha objetivo: *";
+            label16.Text = "(+) Fecha objetivo: *";
             // 
             // btnCancelar
             // 
@@ -208,7 +222,7 @@ namespace CapaPresentacion.UserControls
             txtCapital.HideSelection = true;
             txtCapital.Hint = "Ingrese el capital objetivo";
             txtCapital.LeadingIcon = null;
-            txtCapital.Location = new Point(173, 260);
+            txtCapital.Location = new Point(178, 260);
             txtCapital.Margin = new Padding(4);
             txtCapital.MaxLength = 32767;
             txtCapital.MouseState = MaterialSkin2DotNet.MouseState.OUT;
@@ -234,11 +248,11 @@ namespace CapaPresentacion.UserControls
             label20.AutoSize = true;
             label20.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label20.ForeColor = Color.FromArgb(64, 64, 64);
-            label20.Location = new Point(24, 273);
+            label20.Location = new Point(9, 273);
             label20.Name = "label20";
-            label20.Size = new Size(148, 18);
+            label20.Size = new Size(166, 18);
             label20.TabIndex = 50;
-            label20.Text = "Capital objetivo: **";
+            label20.Text = "(+) Capital objetivo: *";
             // 
             // dpFechaInicio
             // 
@@ -259,11 +273,11 @@ namespace CapaPresentacion.UserControls
             label19.AutoSize = true;
             label19.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label19.ForeColor = Color.FromArgb(64, 64, 64);
-            label19.Location = new Point(33, 212);
+            label19.Location = new Point(9, 212);
             label19.Name = "label19";
-            label19.Size = new Size(138, 18);
+            label19.Size = new Size(163, 18);
             label19.TabIndex = 48;
-            label19.Text = "Fecha de inicio: *";
+            label19.Text = "(+) Fecha de inicio: *";
             // 
             // txtDescripcion
             // 
@@ -306,11 +320,11 @@ namespace CapaPresentacion.UserControls
             label11.AutoSize = true;
             label11.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label11.ForeColor = Color.FromArgb(64, 64, 64);
-            label11.Location = new Point(69, 151);
+            label11.Location = new Point(59, 151);
             label11.Name = "label11";
-            label11.Size = new Size(101, 18);
+            label11.Size = new Size(112, 18);
             label11.TabIndex = 46;
-            label11.Text = "Descripción:";
+            label11.Text = "Descripción: *";
             // 
             // txtNombre
             // 
@@ -369,11 +383,11 @@ namespace CapaPresentacion.UserControls
             label17.AutoSize = true;
             label17.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label17.ForeColor = Color.FromArgb(64, 64, 64);
-            label17.Location = new Point(98, 87);
+            label17.Location = new Point(88, 87);
             label17.Name = "label17";
-            label17.Size = new Size(72, 18);
+            label17.Size = new Size(83, 18);
             label17.TabIndex = 40;
-            label17.Text = "Nombre:";
+            label17.Text = "Nombre: *";
             // 
             // label18
             // 
@@ -714,8 +728,8 @@ namespace CapaPresentacion.UserControls
             // 
             tablePlanesActivos.AllowUserToAddRows = false;
             tablePlanesActivos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            tablePlanesActivos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            tablePlanesActivos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             tablePlanesActivos.Anchor = AnchorStyles.None;
             tablePlanesActivos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tablePlanesActivos.BackgroundColor = Color.WhiteSmoke;
@@ -724,8 +738,8 @@ namespace CapaPresentacion.UserControls
             tablePlanesActivos.Name = "tablePlanesActivos";
             tablePlanesActivos.ReadOnly = true;
             tablePlanesActivos.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            tablePlanesActivos.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            tablePlanesActivos.RowsDefaultCellStyle = dataGridViewCellStyle6;
             tablePlanesActivos.RowTemplate.DefaultCellStyle.Font = new Font("Century Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             tablePlanesActivos.RowTemplate.Height = 30;
             tablePlanesActivos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -833,8 +847,8 @@ namespace CapaPresentacion.UserControls
             // 
             tablePlanesFinalizados.AllowUserToAddRows = false;
             tablePlanesFinalizados.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.Font = new Font("Century Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            tablePlanesFinalizados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Font = new Font("Century Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            tablePlanesFinalizados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             tablePlanesFinalizados.Anchor = AnchorStyles.None;
             tablePlanesFinalizados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tablePlanesFinalizados.BackgroundColor = Color.WhiteSmoke;
@@ -843,8 +857,8 @@ namespace CapaPresentacion.UserControls
             tablePlanesFinalizados.Name = "tablePlanesFinalizados";
             tablePlanesFinalizados.ReadOnly = true;
             tablePlanesFinalizados.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new Font("Century Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            tablePlanesFinalizados.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Font = new Font("Century Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            tablePlanesFinalizados.RowsDefaultCellStyle = dataGridViewCellStyle8;
             tablePlanesFinalizados.RowTemplate.Height = 30;
             tablePlanesFinalizados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             tablePlanesFinalizados.Size = new Size(963, 437);
@@ -936,5 +950,6 @@ namespace CapaPresentacion.UserControls
         private Label label2;
         private Label label8;
         private Label label4;
+        private Label label10;
     }
 }

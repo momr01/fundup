@@ -38,7 +38,7 @@ namespace CapaDatos
                     Plan pl = new Plan();
                     pl.IdPlan = Convert.ToInt32(reader["ID"]);
                     pl.NombrePlan = Convert.ToString(reader["NOMBRE"]);
-                    pl.DescripcionPlan = Convert.ToString(reader["DESCRIPCION"]);
+                    pl.DescripcionPlan = Convert.ToString(reader["DESCRIPCIÓN"]);
                     pl.FechaInicioPlan = Convert.ToDateTime(reader["FECHA INICIO"]);
                     pl.FechaFinPlan = Convert.ToDateTime(reader["FECHA FIN"]);
                     pl.CapitalPlan = Convert.ToDouble(reader["CAPITAL"]);

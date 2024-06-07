@@ -131,13 +131,13 @@ namespace CapaPresentacion.Formularios
                     // if (idPlanCreado > 0)
                     //  {
                     CN_Plan.EditarPlan(_idUsuario, planModificado);
-                        MessageBox.Show("Se modificó el plan correctamente.", "Plan editado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                       Dispose();
-                 //   }
-                 //   else
-                 //   {
-                //        MessageBox.Show("Ocurrió un error. Por favor inténtelo nuevamente más tarde.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    }
+                    MessageBox.Show("Se modificó el plan correctamente.", "Plan editado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Dispose();
+                    //   }
+                    //   else
+                    //   {
+                    //        MessageBox.Show("Ocurrió un error. Por favor inténtelo nuevamente más tarde.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    }
 
                     /*
                      * 

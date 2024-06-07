@@ -52,6 +52,7 @@
             categoriaBindingSource = new BindingSource(components);
             txtImporte = new MaterialSkin2DotNet.Controls.MaterialTextBox2();
             dpFecha = new Krypton.Toolkit.KryptonDateTimePicker();
+            label8 = new Label();
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tableGastos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoriaBindingSource).BeginInit();
@@ -225,11 +226,11 @@
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(64, 64, 64);
-            label4.Location = new Point(68, 74);
+            label4.Location = new Point(56, 74);
             label4.Name = "label4";
-            label4.Size = new Size(101, 18);
+            label4.Size = new Size(112, 18);
             label4.TabIndex = 90;
-            label4.Text = "Descripción:";
+            label4.Text = "Descripción: *";
             // 
             // label1
             // 
@@ -237,11 +238,11 @@
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(64, 64, 64);
-            label1.Location = new Point(83, 140);
+            label1.Location = new Point(71, 140);
             label1.Name = "label1";
-            label1.Size = new Size(87, 18);
+            label1.Size = new Size(98, 18);
             label1.TabIndex = 90;
-            label1.Text = "Categoría:";
+            label1.Text = "Categoría: *";
             // 
             // btnAgregarGasto
             // 
@@ -300,11 +301,11 @@
             label3.AutoSize = true;
             label3.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(64, 64, 64);
-            label3.Location = new Point(527, 140);
+            label3.Location = new Point(515, 140);
             label3.Name = "label3";
-            label3.Size = new Size(58, 18);
+            label3.Size = new Size(69, 18);
             label3.TabIndex = 95;
-            label3.Text = "Fecha:";
+            label3.Text = "Fecha: *";
             // 
             // label7
             // 
@@ -312,11 +313,11 @@
             label7.AutoSize = true;
             label7.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label7.ForeColor = Color.FromArgb(64, 64, 64);
-            label7.Location = new Point(516, 74);
+            label7.Location = new Point(505, 74);
             label7.Name = "label7";
-            label7.Size = new Size(69, 18);
+            label7.Size = new Size(80, 18);
             label7.TabIndex = 96;
-            label7.Text = "Importe:";
+            label7.Text = "Importe: *";
             // 
             // cbCategoria
             // 
@@ -398,10 +399,23 @@
             dpFecha.TabIndex = 99;
             dpFecha.ValueNullable = new DateTime(0L);
             // 
+            // label8
+            // 
+            label8.Anchor = AnchorStyles.None;
+            label8.AutoSize = true;
+            label8.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.ForeColor = Color.FromArgb(30, 50, 94);
+            label8.Location = new Point(766, 162);
+            label8.Name = "label8";
+            label8.Size = new Size(153, 16);
+            label8.TabIndex = 100;
+            label8.Text = "* Campos obligatorios";
+            // 
             // UC_Gastos
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.White;
+            Controls.Add(label8);
             Controls.Add(dpFecha);
             Controls.Add(txtImporte);
             Controls.Add(cbCategoria);
@@ -458,5 +472,6 @@
         private MaterialSkin2DotNet.Controls.MaterialTextBox2 txtImporte;
         private Krypton.Toolkit.KryptonDateTimePicker dpFecha;
         private BindingSource categoriaBindingSource;
+        private Label label8;
     }
 }

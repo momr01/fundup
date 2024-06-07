@@ -99,7 +99,7 @@ namespace CapaPresentacion.Formularios
                 {
                     return false;
                 }
-                
+
                 if (importe < (double.Parse(data.Rows[0].Field<Decimal>("IMPORTE").ToString()) - _reunido))
                 {
                     return false;
@@ -107,7 +107,7 @@ namespace CapaPresentacion.Formularios
 
                 return true;
 
-              
+
 
 
 

@@ -32,7 +32,7 @@ namespace CapaPresentacion.Formularios
             Dispose();
         }
 
-       
+
 
         private void EditarCategoria_Load(object sender, EventArgs e)
         {
@@ -109,7 +109,7 @@ namespace CapaPresentacion.Formularios
                         return;
                     }
 
-                   // bool exito = CN_Dinero.EditarDinero(_idUsuario, gastoModificado, 'G');
+                    // bool exito = CN_Dinero.EditarDinero(_idUsuario, gastoModificado, 'G');
                     CN_Categoria.EditarCategoria(catModificada);
                     MessageBox.Show("Se modificó la categoría correctamente.", "Categoría editada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Dispose();

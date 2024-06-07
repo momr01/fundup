@@ -59,6 +59,7 @@
             lblRegistroEmail = new Label();
             btnRegistrarse = new Bunifu.Framework.UI.BunifuThinButton2();
             btnCancelar = new Button();
+            label8 = new Label();
             gbDatosPersonales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)localidadBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)provinciaBindingSource).BeginInit();
@@ -288,9 +289,9 @@
             lblRegistroApellido.ForeColor = Color.FromArgb(64, 64, 64);
             lblRegistroApellido.Location = new Point(376, 36);
             lblRegistroApellido.Name = "lblRegistroApellido";
-            lblRegistroApellido.Size = new Size(75, 18);
+            lblRegistroApellido.Size = new Size(86, 18);
             lblRegistroApellido.TabIndex = 30;
-            lblRegistroApellido.Text = "Apellido:";
+            lblRegistroApellido.Text = "Apellido: *";
             // 
             // gbRegistroDomicilio
             // 
@@ -302,7 +303,7 @@
             gbRegistroDomicilio.Size = new Size(629, 118);
             gbRegistroDomicilio.TabIndex = 29;
             gbRegistroDomicilio.TabStop = false;
-            gbRegistroDomicilio.Text = "Domicilio";
+            gbRegistroDomicilio.Text = "Domicilio *";
             // 
             // txtRegistroNroDomicilio
             // 
@@ -375,9 +376,9 @@
             lblRegistroProvincia.ForeColor = Color.FromArgb(64, 64, 64);
             lblRegistroProvincia.Location = new Point(37, 400);
             lblRegistroProvincia.Name = "lblRegistroProvincia";
-            lblRegistroProvincia.Size = new Size(76, 18);
+            lblRegistroProvincia.Size = new Size(91, 18);
             lblRegistroProvincia.TabIndex = 27;
-            lblRegistroProvincia.Text = "Provincia";
+            lblRegistroProvincia.Text = "Provincia: *";
             // 
             // dtRegistroFechaNacimiento
             // 
@@ -398,9 +399,9 @@
             lblRegistroLocalidad.ForeColor = Color.FromArgb(64, 64, 64);
             lblRegistroLocalidad.Location = new Point(378, 400);
             lblRegistroLocalidad.Name = "lblRegistroLocalidad";
-            lblRegistroLocalidad.Size = new Size(83, 18);
+            lblRegistroLocalidad.Size = new Size(98, 18);
             lblRegistroLocalidad.TabIndex = 26;
-            lblRegistroLocalidad.Text = "Localidad";
+            lblRegistroLocalidad.Text = "Localidad: *";
             // 
             // lblRegistroFechaNacimiento
             // 
@@ -410,9 +411,9 @@
             lblRegistroFechaNacimiento.ForeColor = Color.FromArgb(64, 64, 64);
             lblRegistroFechaNacimiento.Location = new Point(377, 137);
             lblRegistroFechaNacimiento.Name = "lblRegistroFechaNacimiento";
-            lblRegistroFechaNacimiento.Size = new Size(170, 18);
+            lblRegistroFechaNacimiento.Size = new Size(181, 18);
             lblRegistroFechaNacimiento.TabIndex = 18;
-            lblRegistroFechaNacimiento.Text = "Fecha de nacimiento:";
+            lblRegistroFechaNacimiento.Text = "Fecha de nacimiento: *";
             // 
             // lblRegistroDni
             // 
@@ -422,9 +423,9 @@
             lblRegistroDni.ForeColor = Color.FromArgb(64, 64, 64);
             lblRegistroDni.Location = new Point(35, 137);
             lblRegistroDni.Name = "lblRegistroDni";
-            lblRegistroDni.Size = new Size(181, 18);
+            lblRegistroDni.Size = new Size(196, 18);
             lblRegistroDni.TabIndex = 16;
-            lblRegistroDni.Text = "Numero de documento";
+            lblRegistroDni.Text = "Numero de documento: *";
             // 
             // lblRegistroNombre
             // 
@@ -434,9 +435,9 @@
             lblRegistroNombre.ForeColor = Color.FromArgb(64, 64, 64);
             lblRegistroNombre.Location = new Point(33, 36);
             lblRegistroNombre.Name = "lblRegistroNombre";
-            lblRegistroNombre.Size = new Size(78, 18);
+            lblRegistroNombre.Size = new Size(89, 18);
             lblRegistroNombre.TabIndex = 1;
-            lblRegistroNombre.Text = "Nombres:";
+            lblRegistroNombre.Text = "Nombres: *";
             // 
             // gbDatosUsuario
             // 
@@ -523,9 +524,9 @@
             lblRegistroContraseña.ForeColor = Color.FromArgb(64, 64, 64);
             lblRegistroContraseña.Location = new Point(24, 137);
             lblRegistroContraseña.Name = "lblRegistroContraseña";
-            lblRegistroContraseña.Size = new Size(93, 18);
+            lblRegistroContraseña.Size = new Size(108, 18);
             lblRegistroContraseña.TabIndex = 20;
-            lblRegistroContraseña.Text = "Contraseña";
+            lblRegistroContraseña.Text = "Contraseña: *";
             // 
             // lblRegistroEmail
             // 
@@ -535,9 +536,9 @@
             lblRegistroEmail.ForeColor = Color.FromArgb(64, 64, 64);
             lblRegistroEmail.Location = new Point(24, 36);
             lblRegistroEmail.Name = "lblRegistroEmail";
-            lblRegistroEmail.Size = new Size(52, 18);
+            lblRegistroEmail.Size = new Size(63, 18);
             lblRegistroEmail.TabIndex = 19;
-            lblRegistroEmail.Text = "Email:";
+            lblRegistroEmail.Text = "Email: *";
             // 
             // btnRegistrarse
             // 
@@ -579,12 +580,23 @@
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(1008, 511);
+            label8.Name = "label8";
+            label8.Size = new Size(153, 16);
+            label8.TabIndex = 120;
+            label8.Text = "* Campos obligatorios";
+            // 
             // RegistroUsuarioForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1177, 540);
+            Controls.Add(label8);
             Controls.Add(btnCancelar);
             Controls.Add(btnRegistrarse);
             Controls.Add(gbDatosUsuario);
@@ -607,6 +619,7 @@
             gbDatosUsuario.ResumeLayout(false);
             gbDatosUsuario.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -640,5 +653,6 @@
         private MaterialSkin2DotNet.Controls.MaterialTextBox2 txtRegistroDomicilio;
         private MaterialSkin2DotNet.Controls.MaterialTextBox2 txtRegistroContraseña;
         private MaterialSkin2DotNet.Controls.MaterialTextBox2 txtRegistroEmail;
+        private Label label8;
     }
 }
