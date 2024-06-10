@@ -247,7 +247,7 @@ namespace CapaDatos
 
                     Categoria cat = new Categoria();
                     ing.Categoria = cat;
-                    cat.NombreCategoria = leer["CATEGORIA"].ToString();
+                    cat.NombreCategoria = leer["CATEGORÍA"].ToString();
 
                     lista.Add(ing);
                 }

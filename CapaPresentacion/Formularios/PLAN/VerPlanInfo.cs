@@ -24,9 +24,7 @@ namespace CapaPresentacion.Formularios
 
         private void VerPlanInfo_Load(object sender, EventArgs e)
         {
-            //lblObjetivo.Text = _capital.ToString();
             lblObjetivo.Text = "$ " + String.Format("{0:#,##0.00}", _capital);
-            //lblValorDiario.Text = _valorDiario.ToString();
             lblValorDiario.Text = "$ " + String.Format("{0:#,##0.00}", _valorDiario);
         }
 

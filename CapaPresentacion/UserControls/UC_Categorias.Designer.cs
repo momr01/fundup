@@ -273,7 +273,7 @@
             cbBuscar.DropDownStyle = ComboBoxStyle.DropDownList;
             cbBuscar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cbBuscar.FormattingEnabled = true;
-            cbBuscar.Items.AddRange(new object[] { "NOMBRE", "DESCRIPCION" });
+            cbBuscar.Items.AddRange(new object[] { "NOMBRE", "DESCRIPCIÓN" });
             cbBuscar.Location = new Point(647, 205);
             cbBuscar.Name = "cbBuscar";
             cbBuscar.Size = new Size(125, 25);

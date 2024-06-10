@@ -26,10 +26,6 @@ namespace CapaPresentacion.UserControls
         {
             CN_Dinero mov = new CN_Dinero();
             tableMovimientos.DataSource = mov.GetDineroTotal(_usuario.idUsuario);
-            //  tableDinero.Columns["ID"].Visible = false;
-            // tableDinero.Columns["ID_CATEGORIA"].Visible = false;
-            //  lblTotalIngresos.Text = tableIngresos.Rows.Count.ToString();
-            //if(tableDinero.CurrentRow?.Cells["DESCRIPCION"].Value.ToString())
 
 
             AnularOrdenColumnas();
@@ -37,14 +33,7 @@ namespace CapaPresentacion.UserControls
 
             lblTotal.Text = (tableMovimientos.Rows.Count - 2).ToString();
 
-            /*  if (tableDinero.Rows.Count > 2)
-              {
-                  btnReporte.Visible = true;
-              }
-
-              */
-
-            if((tableMovimientos.Rows.Count - 2) > 0)
+            if ((tableMovimientos.Rows.Count - 2) > 0)
             {
                 txtBuscar.Enabled = true;
             }
@@ -98,9 +87,9 @@ namespace CapaPresentacion.UserControls
 
         private void Filtrar()
         {
-            if (cbBuscar.Text == "DESCRIPCION")
+            if (cbBuscar.Text == "DESCRIPCIÓN")
             {
-                (tableMovimientos.DataSource as DataTable)!.DefaultView.RowFilter = TextoParaFiltrar("DESCRIPCION", txtBuscar.Text);
+                (tableMovimientos.DataSource as DataTable)!.DefaultView.RowFilter = TextoParaFiltrar("DESCRIPCIÓN", txtBuscar.Text);
                 lblTotal.Text = tableMovimientos.Rows.Count.ToString();
 
             }

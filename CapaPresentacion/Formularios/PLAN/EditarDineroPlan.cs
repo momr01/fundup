@@ -73,7 +73,7 @@ namespace CapaPresentacion.Formularios
 
                 var data = movimiento.GetDinero(_idUsuario, _idMov, _type);
 
-                txtDescripcion.Text = data.Rows[0].Field<string>("DESCRIPCION");
+                txtDescripcion.Text = data.Rows[0].Field<string>("DESCRIPCIÓN");
                 txtImporte.Text = data.Rows[0].Field<decimal>("IMPORTE").ToString();
                 cbCategoria.SelectedValue = Convert.ToInt32(data.Rows[0].Field<int>("ID_CATEGORIA"));
                 dpFecha.Value = data.Rows[0].Field<DateTime>("FECHA");

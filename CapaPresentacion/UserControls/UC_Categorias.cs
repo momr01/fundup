@@ -212,9 +212,9 @@ namespace CapaPresentacion.UserControls
                 lblTotalCategorias.Text = tableCategorias.Rows.Count.ToString();
 
             }
-            else if (cbBuscar.Text == "DESCRIPCION")
+            else if (cbBuscar.Text == "DESCRIPCIÓN")
             {
-                (tableCategorias.DataSource as DataTable)!.DefaultView.RowFilter = TextoParaFiltrar("DESCRIPCION", txtBuscar.Text);
+                (tableCategorias.DataSource as DataTable)!.DefaultView.RowFilter = TextoParaFiltrar("DESCRIPCIÓN", txtBuscar.Text);
                 lblTotalCategorias.Text = tableCategorias.Rows.Count.ToString();
             }
         }

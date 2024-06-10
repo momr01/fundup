@@ -37,7 +37,7 @@ namespace CapaDatos
                     Categoria cat = new Categoria();
                     cat.IdCategoria = Convert.ToInt32(reader["ID"]);
                     cat.NombreCategoria = Convert.ToString(reader["NOMBRE"]);
-                    cat.DescripcionCategoria = Convert.ToString(reader["DESCRIPCION"]);
+                    cat.DescripcionCategoria = Convert.ToString(reader["DESCRIPCIÓN"]);
 
                     listaCategorias.Add(cat);
                 }

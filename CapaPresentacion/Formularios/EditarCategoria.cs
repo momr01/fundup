@@ -93,23 +93,12 @@ namespace CapaPresentacion.Formularios
                     catModificada.Usuario = new Usuario();
                     catModificada.Usuario.idUsuario = Convert.ToInt32(_idUsuario);
 
-                    /* Dinero gastoModificado = new Dinero();
-
-                     gastoModificado.IdDinero = _idGasto;
-                     gastoModificado.ImporteDinero = Convert.ToDouble(txtImporte.Text.Trim());
-                     gastoModificado.DescripcionDinero = txtDescripcion.Text.Trim();
-                     gastoModificado.FechaDinero = dpFecha.Value;
-
-                     gastoModificado.Categoria = new Categoria();
-                     gastoModificado.Categoria.IdCategoria = (int)cbCategoria.SelectedValue;*/
-
                     DialogResult editar = MessageBox.Show("¿Confirma edición?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (editar == DialogResult.No)
                     {
                         return;
                     }
 
-                    // bool exito = CN_Dinero.EditarDinero(_idUsuario, gastoModificado, 'G');
                     CN_Categoria.EditarCategoria(catModificada);
                     MessageBox.Show("Se modificó la categoría correctamente.", "Categoría editada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Dispose();

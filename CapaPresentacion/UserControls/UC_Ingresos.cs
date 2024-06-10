@@ -234,15 +234,15 @@ namespace CapaPresentacion.UserControls
 
         private void Filtrar()
         {
-            if (cbBuscar.Text == "CATEGORIA")
+            if (cbBuscar.Text == "CATEGORÍA")
             {
-                (tableIngresos.DataSource as DataTable)!.DefaultView.RowFilter = TextoParaFiltrar("CATEGORIA", txtBuscar.Text);
+                (tableIngresos.DataSource as DataTable)!.DefaultView.RowFilter = TextoParaFiltrar("CATEGORÍA", txtBuscar.Text);
                 lblTotalIngresos.Text = tableIngresos.Rows.Count.ToString();
 
             }
-            else if (cbBuscar.Text == "DESCRIPCION")
+            else if (cbBuscar.Text == "DESCRIPCIÓN")
             {
-                (tableIngresos.DataSource as DataTable)!.DefaultView.RowFilter = TextoParaFiltrar("DESCRIPCION", txtBuscar.Text);
+                (tableIngresos.DataSource as DataTable)!.DefaultView.RowFilter = TextoParaFiltrar("DESCRIPCIÓN", txtBuscar.Text);
                 lblTotalIngresos.Text = tableIngresos.Rows.Count.ToString();
             }
         }

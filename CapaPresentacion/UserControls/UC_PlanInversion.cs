@@ -85,8 +85,6 @@ namespace CapaPresentacion.UserControls
             tablePlanesActivos.Columns["ID"].Visible = false;
             tablePlanesActivos.Columns["ESTADO"].Visible = false;
             tablePlanesActivos.Columns["FECHA COMPLETO"].Visible = false;
-            //  tablePlanesActivos.DefaultCellStyle.SelectionBackColor = tablePlanesActivos.DefaultCellStyle.BackColor;
-            //tablePlanesActivos.DefaultCellStyle.SelectionForeColor = tablePlanesActivos.DefaultCellStyle.ForeColor;
             tablePlanesActivos.ClearSelection();
 
             if (tablePlanesActivos.Rows.Count > 0)
