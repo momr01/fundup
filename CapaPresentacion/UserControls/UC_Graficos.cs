@@ -3,26 +3,15 @@ using Entidades;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 using iTextSharp.tool.xml;
-using PdfSharp.Drawing;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.IO;
 
 namespace CapaPresentacion.UserControls
 {
     public partial class UC_Graficos : UserControl
     {
 
-        CN_Dinero CN_Dinero = new CN_Dinero();
+        CN_Dinero CN_Dinero = new();
         Usuario _usuario;
+       
 
         public UC_Graficos(Usuario usuario)
         {
@@ -30,28 +19,6 @@ namespace CapaPresentacion.UserControls
             _usuario = usuario;
         }
 
-
-        [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-
-        private const int WM_PRINT = 791;
-        [Flags]
-        private enum DrawingOptions
-        {
-            PRF_CHECKVISIBLE = 1,
-            PRF_NONCLIENT = 2,
-            PRF_CLIENT = 4,
-            PRF_ERASEBKGND = 8,
-            PRF_CHILDREN = 16,
-            PRF_OWNED = 32
-        }
-
-
-        /// <summary>
-        /// /////////////////////////////////////////////////////////
-        /// </summary>
-        /// <param name="lista"></param>
-        /// <param name="tipo"></param>
 
         private void GraficoFechas(List<Dinero> lista, string tipo)
         {
@@ -68,7 +35,7 @@ namespace CapaPresentacion.UserControls
 
             cnv.addData(dataPoint);
             bunifuDataViz1.Render(cnv);
-            lblTituloGrafico.Text = tipo + " desde " + String.Format("{0:d/M/yy}", dpFecha1.Value) + " hasta " + String.Format("{0:d/M/yy}", dpFecha2.Value);
+            lblTituloGrafico.Text = $"{tipo} desde {String.Format("{0:d/M/yy}", dpFecha1.Value)} hasta {String.Format("{0:d/M/yy}", dpFecha2.Value)}";
 
             if(lista.Count > 0)
             {
@@ -181,14 +148,17 @@ namespace CapaPresentacion.UserControls
 
         private void btnPDF_Click(object sender, EventArgs e)
         {
-            generarReporte();
+            GenerarReporte();
+           
         }
 
-        private Bitmap Screenshot()
+      
+
+            private Bitmap Screenshot()
         {
             Point location = PointToScreen(bunifuDataViz1.Location);
             Size size = bunifuDataViz1.Size;
-            Bitmap bmpScreenshot = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            Bitmap bmpScreenshot = new(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
 
             Graphics g = Graphics.FromImage(bmpScreenshot);
             g.CopyFromScreen(location.X, location.Y, 0, 0, new Size(size.Width, size.Height));
@@ -196,26 +166,7 @@ namespace CapaPresentacion.UserControls
             return bmpScreenshot;
         }
 
-        public void exportarPDF(Bitmap img)
-        {
-            SaveFileDialog savefile = new SaveFileDialog();
-
-            if (savefile.ShowDialog() == DialogResult.OK) //confirmamos que queremos guardar
-            {
-
-                System.Drawing.Image image = img;  //Here I passed a bitmap
-                Document doc = new Document(PageSize.A4);
-
-                PdfWriter.GetInstance(doc, new FileStream("image.pdf", FileMode.Create));
-                doc.Open();
-                iTextSharp.text.Image pdfImage = iTextSharp.text.Image.GetInstance(image,
-                        System.Drawing.Imaging.ImageFormat.Jpeg);
-                doc.Add(pdfImage);
-                doc.Close();
-            }
-        }
-
-        protected void DrawPageBorder(PdfWriter writer, iTextSharp.text.Document document, PdfContentByte canvas)
+        protected void DrawPageBorder(PdfWriter writer, Document document, PdfContentByte canvas)
         {
             var pageBorderRect = new iTextSharp.text.Rectangle(document.PageSize);
             var content = writer.DirectContent;
@@ -232,21 +183,21 @@ namespace CapaPresentacion.UserControls
             content.Stroke();
         }
 
-        private String primeraLetraMayuscula(String text)
+        private String PrimeraLetraMayuscula(String text)
         {
             char[] letras = text.ToCharArray();
             letras[0] = char.ToUpper(letras[0]);
             return new string(letras);
         }
 
-        private void generarReporte()
+        private void GenerarReporte()
         {
-            SaveFileDialog savefile = new SaveFileDialog();
-            savefile.FileName = string.Format("{0}.pdf", "reporte-" + _usuario.apellidoUsuario + "-" + DateTime.Now.ToString("yyyyMMdd") + "-" + DateTime.Now.ToString("HHmmss"));
+            SaveFileDialog savefile = new();
+            savefile.FileName = string.Format("{0}.pdf", $"reporte-{_usuario.apellidoUsuario}-{DateTime.Now.ToString("yyyyMMdd")}-{DateTime.Now.ToString("HHmmss")}");
 
             string PaginaHTML_Texto = Properties.Resources.Plantilla_graficos.ToString();
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@TITLE", lblTituloGrafico.Text);
-            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@USUARIO", primeraLetraMayuscula(_usuario.nombreUsuario!) + " " + primeraLetraMayuscula(_usuario.apellidoUsuario!));
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@USUARIO", $"{PrimeraLetraMayuscula(_usuario.nombreUsuario!)} {PrimeraLetraMayuscula(_usuario.apellidoUsuario!)}");
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@EMAIL", _usuario.emailUsuario);
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA", DateTime.Now.ToString("dd/MM/yyyy"));
 
@@ -256,18 +207,17 @@ namespace CapaPresentacion.UserControls
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@TOTAL", total.ToString());
 
 
-            if (savefile.ShowDialog() == DialogResult.OK) //confirmamos que queremos guardar
+            if (savefile.ShowDialog() == DialogResult.OK) 
             {
+               Document pdfDoc = new(PageSize.A4, 25, 25, 25, 25); //margenes
 
-                using (FileStream stream = new FileStream(savefile.FileName, FileMode.Create)) //dentro de archivo de memoria
+                using (FileStream stream = new(savefile.FileName, FileMode.Create, FileAccess.Write, FileShare.None)) //dentro de archivo de memoria
                 {
-                    iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4, 25, 25, 25, 25); //margenes
-
                     PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream); //documento y archivo de memoria que estamos creando
                     pdfDoc.Open();
                     pdfDoc.Add(new Phrase(""));
 
-                    PdfContentByte canvas = new PdfContentByte(writer);
+                    PdfContentByte canvas = new(writer);
 
                     DrawPageBorder(writer, pdfDoc, canvas);
 

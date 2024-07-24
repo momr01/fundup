@@ -1,5 +1,4 @@
 using CapaPresentacion.UserControls;
-using QuestPDF.Infrastructure;
 
 namespace CapaPresentacion
 {
@@ -17,7 +16,6 @@ namespace CapaPresentacion
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            QuestPDF.Settings.License = LicenseType.Community;
             Application.Run(new LoginForm());
             
 
